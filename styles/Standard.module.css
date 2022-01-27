@@ -1,0 +1,37 @@
+.container {
+    margin: 0 auto;
+    max-width: 50em;
+  }
+
+.blogPost {
+    line-height: 1.5;
+    padding-left: 1em;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;;
+    position: relative;
+    background-color: #f5f5f5;
+}
+
+.blogPost a {
+    color: blue;
+}
+
+.blogPost h1 {
+    font-size: 3em;
+    line-height: 1;
+    padding-top: 1rem;
+}
+
+.postDate {
+    position: absolute;
+    top: .5rem;
+    right: 1em;
+    vertical-align: top;
+}
+
+.title {
+    margin: auto;
+    line-height: 1.15;
+    font-size: 5rem;
+    padding: 0 2rem;
+  }
+
