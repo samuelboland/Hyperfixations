@@ -26,7 +26,25 @@ export async function getPosts() {
     return posts;
 }
 
+export async function newPost(req) {
+    const client = await clientPromise;
+    const db = client.db(MONGODB_DB_NAME);
+    let bodyObject = JSON.parse(JSON.stringify(req.body));
+    let newPost = await db.collection('posts').insertOne(bodyObject);
+    console.log(newPost);
+    return newPost.acknowledged;
+}
+
 export default async function handler(req, res) {
-    const posts = await getPosts();
-    res.json({ status: 200, data: posts });
+    switch (req.method) {
+        case 'GET':
+            const posts = await getPosts();
+            res.json({ status: 200, data: posts });
+            break;
+        case 'POST':
+            console.log(req.body);
+            console.log(JSON.parse(JSON.stringify(req.body)));
+            const status = await newPost(req);
+            res.json({ status });
+    }
 }
