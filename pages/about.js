@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import styles from '../styles/Standard.module.css';
+import React from 'react';
 
 export default function About() {
     return (
