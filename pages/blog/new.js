@@ -1,6 +1,8 @@
 //import { newPost } from '../api/mongoDB_posts';
 import React from 'react';
 import { useState } from 'react';
+import { useSession, signIn, signOut } from 'next-auth/react';
+import '../../styles/Standard.module.css';
 
 const create = () => {
     const [title, setTitle] = useState('');
@@ -9,7 +11,6 @@ const create = () => {
 
     const handleSubmit = async (e) => {
         const newPost = { title: title, body: body };
-        console.log(newPost);
         e.preventDefault();
         try {
             let res = await fetch('/api/mongoDB_posts', {
@@ -32,28 +33,38 @@ const create = () => {
         }
     };
 
-    return (
-        <div>
-            <h1> New Post </h1>
-            <h2>{message}</h2>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    value={title}
-                    placeholder="title"
-                    onChange={(e) => setTitle(e.target.value)}
-                ></input>
-                <input
-                    type="text"
-                    value={body}
-                    placeholder="body"
-                    onChange={(e) => setBody(e.target.value)}
-                ></input>
-                <button type="submit">Create</button>
-                <div className="message">{message ? <p>{message}</p> : null}</div>
-            </form>
-        </div>
-    );
+    const { data: session } = useSession();
+    if (session) {
+        return (
+            <div>
+                <h1> New Post </h1>
+                <h2>{message}</h2>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        value={title}
+                        placeholder="title"
+                        onChange={(e) => setTitle(e.target.value)}
+                    ></input>
+                    <input
+                        type="text"
+                        value={body}
+                        placeholder="body"
+                        onChange={(e) => setBody(e.target.value)}
+                    ></input>
+                    <button type="submit">Create</button>
+                    <div className="message">{message ? <p>{message}</p> : null}</div>
+                </form>
+            </div>
+        );
+    } else {
+        return (
+            <>
+                Not signed in <br />
+                <button onClick={() => signIn()}>Sign in</button>
+            </>
+        );
+    }
 };
 
 export default create;
