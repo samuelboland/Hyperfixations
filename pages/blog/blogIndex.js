@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from '../styles/Standard.module.css';
-import { getPosts } from './api/mongoDB_posts';
+import styles from '../../styles/Standard.module.css';
+import { getPosts } from '../api/mongoDB_posts';
 
-const Blog = ({ posts }) => {
+const blogIndex = ({ posts }) => {
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>My Current Fixation</h1>
@@ -22,4 +22,4 @@ export async function getStaticProps(context) {
         props: { posts },
     };
 }
-export default Blog;
+export default blogIndex;
