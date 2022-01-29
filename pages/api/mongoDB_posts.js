@@ -2,22 +2,6 @@ import clientPromise from '../../lib/mongodb';
 
 const MONGODB_DB_NAME = process.env.MONGODB_DB_NAME;
 
-/*export default async function handler(req, res) {
-    const client = await clientPromise;
-    const db = client.db(MONGODB_DB_NAME);
-    switch (req.method) {
-        case 'POST':
-            let bodyObject = JSON.parse(req.body);
-            let newPost = await db.collection('posts').insetOne(bodyObject);
-            res.json(newPost.ops[0]);
-            break;
-        case 'GET':
-            const posts = await db.collection('posts').find({}).toArray();
-            res.json({ status: 200, data: posts });
-            break;
-    }
-}*/
-
 export async function getPosts() {
     const client = await clientPromise;
     const db = client.db(MONGODB_DB_NAME);
@@ -42,11 +26,12 @@ export default async function handler(req, res) {
             res.json({ status: 200, data: posts });
             break;
         case 'POST':
-            const status = await newPost(req);
-            res.json({ status });
+            const newPostResponse = await newPost(req);
+            res.json({ newPostResponse });
             break;
         case 'DELETE':
-            const status = await deletePost(req);
-            res.json({ status });
+            const deleteResponse = await deletePost(req);
+            res.json({ deleteResponse });
+            break;
     }
 }
