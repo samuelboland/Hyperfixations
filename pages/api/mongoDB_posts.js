@@ -42,9 +42,11 @@ export default async function handler(req, res) {
             res.json({ status: 200, data: posts });
             break;
         case 'POST':
-            console.log(req.body);
-            console.log(JSON.parse(JSON.stringify(req.body)));
             const status = await newPost(req);
+            res.json({ status });
+            break;
+        case 'DELETE':
+            const status = await deletePost(req);
             res.json({ status });
     }
 }
