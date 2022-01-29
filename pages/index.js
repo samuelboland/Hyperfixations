@@ -22,11 +22,14 @@ export default function Home() {
                     <Link href="/about">
                         <a className={styles.card}>
                             <h2>About &rarr;</h2>
-                            <p>Learn a bit about who I am, what I do, and why I do it. If you want, I guess.</p>
+                            <p>
+                                Learn a bit about who I am, what I do, and why I do it. If you want,
+                                I guess.
+                            </p>
                         </a>
                     </Link>
 
-                    <Link href="/blog">
+                    <Link href="/blog/blogIndex">
                         <a className={styles.card}>
                             <h2>Blog &rarr;</h2>
                             <p>Sometimes, I think about things and put them on the internet.</p>
@@ -36,7 +39,10 @@ export default function Home() {
                     <Link href="/">
                         <a className={styles.card}>
                             <h2>Todo App &rarr;</h2>
-                            <p>Basically the hello, world of react projects at this point. I might as well do it!</p>
+                            <p>
+                                Basically the hello, world of react projects at this point. I might
+                                as well do it!
+                            </p>
                         </a>
                     </Link>
 
