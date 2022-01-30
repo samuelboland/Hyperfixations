@@ -2,7 +2,6 @@
 import React from 'react';
 import { useState } from 'react';
 import { useSession, signIn, signOut } from 'next-auth/react';
-import '../../styles/Standard.module.css';
 
 const create = () => {
     const [title, setTitle] = useState('');
