@@ -1,20 +1,12 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
 export default function Home() {
     return (
-        <div className={styles.container}>
-            <Head>
-                <title>Sam Boland</title>
-                <meta name="description" content="Sam Bolad's website" />
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-
-            <main className={styles.main}>
-                <h1 className={styles.title}>Sam Boland</h1>
+        <div>
+            <main>
+                <h1>Sam Boland</h1>
                 <h2> Senior QA Engineer @ Appfolio</h2>
                 <h3> I made a website :D</h3>
 
