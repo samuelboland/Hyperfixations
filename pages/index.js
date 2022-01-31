@@ -22,23 +22,6 @@ export default function Home() {
                         </a>
                     </Link>
                     <p>Sometimes, I think about things and put them on the internet.</p>
-
-                    <Link href="/">
-                        <a>
-                            <h2>Todo App </h2>
-                        </a>
-                    </Link>
-                    <p>
-                        Basically the hello, world of react projects at this point. I might as well
-                        do it!
-                    </p>
-
-                    <Link href="/">
-                        <a>
-                            <h2>Something else</h2>
-                        </a>
-                    </Link>
-                    <p>Lorem Ipsum Dolor Sit etc etc you get it, this is placeholder.</p>
                 </div>
             </main>
         </div>
