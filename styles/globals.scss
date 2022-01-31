@@ -1,0 +1,40 @@
+@use 'styles/fonts' as *;
+
+$primary-color: #361a02;
+$background-color: #fcf7f3;
+$accent-color: #da3300;
+$contrast-color: #2563EB;
+
+
+
+body {
+    line-height: 1.5;
+    color: $primary-color;
+    background-color: $background-color;
+    font-family: $font-sans
+}
+
+a {
+    color: $accent-color;
+}
+
+h1,
+h2,
+strong {
+    color: #333;
+}
+
+h1 {
+    font-family: $font-title;
+}
+
+pre,
+code{
+    font-family: $font-mono
+}
+
+a{
+    h2{
+        color: $accent-color
+    }
+}
