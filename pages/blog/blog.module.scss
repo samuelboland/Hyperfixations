@@ -1,0 +1,12 @@
+@use '../../styles/fonts.scss' as *;
+
+.post_body {
+        font-family: $font-sans;
+        font-size: 1.2rem;
+}
+
+.post_header {
+    font-family: $font-serif;
+    font-size: 3rem;
+
+}
