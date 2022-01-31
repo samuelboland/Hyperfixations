@@ -1,10 +1,10 @@
 import React from 'react';
 import { SessionProvider } from 'next-auth/react';
 
-import '../styles/globals.css';
 import Layout from '../components/layout';
 import Head from 'next/head';
 import 'marx-css';
+import '../styles/globals.scss';
 
 export default function App({ Component, pageProps: { session, ...pageProps } }) {
     return (
@@ -16,7 +16,9 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Layout>
-                <Component {...pageProps} />
+                <body>
+                    <Component {...pageProps} />
+                </body>
             </Layout>
         </SessionProvider>
     );
