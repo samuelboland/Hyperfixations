@@ -14,3 +14,5 @@ This is my personal site to play, learn, and maybe advertise myself.
 - [Marx classless css](https://mblode.github.io/marx/)
 - [Slick Gradient](https://slick-gradient.vercel.app/?ref=producthunt)
 - [React Icons](https://react-icons.github.io/react-icons/)
+- [Tiptap Rich Text Editor Framework](https://tiptap.dev/)
+- [Sematext Logs](https://sematext.com/)
