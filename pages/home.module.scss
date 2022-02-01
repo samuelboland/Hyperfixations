@@ -15,10 +15,24 @@
         rgb(239, 68, 68),
         rgb(245, 158, 11)
     );
+    .hometext {
+        font-family: $font-title;
+        color: $background-color;
+        font-size: 10rem;
+    }
 }
 
-.hometext {
-    font-family: $font-title;
+.icon {
+    transition: transform .2s;
     color: $background-color;
-    font-size: 10rem;
+    font-size: 3rem;
+    padding-left: 2rem;    
+
+    a{
+        color: $background-color;
+    }
+}
+
+.icon:hover{
+    transform: scale(1.2);
 }
