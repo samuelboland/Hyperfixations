@@ -9,6 +9,8 @@
     },
     "dependencies": {
         "@next/eslint-plugin-next": "^12.0.9",
+        "@tiptap/react": "^2.0.0-beta.107",
+        "@tiptap/starter-kit": "^2.0.0-beta.180",
         "animate.css": "^4.1.1",
         "axios": "^0.25.0",
         "framer-motion": "^6.2.3",
