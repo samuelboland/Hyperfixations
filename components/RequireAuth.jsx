@@ -5,7 +5,7 @@ const RequireAuth = ({ children }) => {
     if (session) {
         return <>{children}</>;
     } else {
-        return <div>Not Authorized</div>;
+        return <></>;
     }
 };
 
