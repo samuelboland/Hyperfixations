@@ -1,7 +1,6 @@
 //import { newPost } from '../api/mongoDB_posts';
 import React from 'react';
 import { useState } from 'react';
-import { useSession, signIn, signOut } from 'next-auth/react';
 import RequireAuth from '../../components/RequireAuth';
 
 const create = () => {
