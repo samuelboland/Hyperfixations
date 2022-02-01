@@ -2,6 +2,7 @@
 import React from 'react';
 import { useState } from 'react';
 import RequireAuth from '../../components/RequireAuth';
+import TiptapEdit from '../../components/TiptapEdit';
 
 const create = () => {
     const [title, setTitle] = useState('');
@@ -34,7 +35,7 @@ const create = () => {
 
     return (
         <RequireAuth>
-            <div>
+            <main>
                 <h1> New Post </h1>
                 <h2>{message}</h2>
                 <form onSubmit={handleSubmit}>
@@ -44,15 +45,15 @@ const create = () => {
                         placeholder="title"
                         onChange={(e) => setTitle(e.target.value)}
                     ></input>
-                    <input
-                        type="text"
-                        value={body}
-                        placeholder="body"
-                        onChange={(e) => setBody(e.target.value)}
-                    ></input>
+                    <TiptapEdit
+                        stateHandler={(text) => {
+                            setBody(text);
+                        }}
+                    />
                     <button type="submit">Create</button>
+                    {body}
                 </form>
-            </div>
+            </main>
         </RequireAuth>
     );
 };

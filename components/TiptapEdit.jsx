@@ -122,10 +122,25 @@ const MenuBar = ({ editor }) => {
     );
 };
 
-const Tiptap = () => {
+// I might want to use this editor in multiple places, so I don't want to hardcode a particular
+// way of saving the information here. This editor will be used inside of html <form> elements,
+// so I want to return the value of the form continuously as I type. This will let me use
+// regular old onSubmit handlers in whatever page I want.
+
+// However, this introduces a problem. The parent element will be calling this child element. I could
+// store the state here, but the parent element needs it to submit. I think that a more reacty way
+// of doing this would be to define a function in the parent element to handle the state, and pass that
+// function to this child element. Let's see if that works!
+
+const TiptapEdit = (props) => {
     const editor = useEditor({
         extensions: [StarterKit],
         content: '<p>Hello World! 🌎️</p>',
+        onUpdate: ({ editor }) => {
+            props.stateHandler(editor.getHTML());
+            // I expect the parent element to pass a "stateHandler" function that deals with this
+            // data that's being returned. It can do whatever it wants with it.
+        },
     });
 
     return (
@@ -136,4 +151,4 @@ const Tiptap = () => {
     );
 };
 
-export default Tiptap;
+export default TiptapEdit;
