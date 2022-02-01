@@ -1,10 +1,10 @@
-import React from 'react';
 import AnimationWrapper from '../../components/AnimationWrapper';
 import { getPosts } from '../api/mongoDB_posts';
-import styles from './blog.module.scss';
-import { useSession } from 'next-auth/react';
-import { useState } from 'react';
+import { React, useState } from 'react';
 import RequireAuth from '../../components/RequireAuth';
+import TiptapDisplay from '../../components/TipTapDisplay';
+
+import styles from './blog.module.scss';
 
 const blogIndex = ({ posts }) => {
     const [message, setMessage] = useState('');
@@ -31,14 +31,14 @@ const blogIndex = ({ posts }) => {
         }
     };
 
-    const session = useSession();
     return (
         <AnimationWrapper>
             <main>
                 {posts.map((post) => (
                     <div key={post._id}>
                         <h2 className={styles.post_header}>{post.title}</h2>
-                        <p className={styles.post_body}>{post.body}</p>
+                        <TiptapDisplay content={post.body} />
+
                         <RequireAuth>
                             <button onClick={(e) => handleDelete(e, post._id, posts)}>
                                 Delete
