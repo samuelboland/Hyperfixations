@@ -9,9 +9,6 @@ class MyDocument extends Document {
                         href="https://fonts.googleapis.com/css2?family=Inter&display=optional"
                         rel="stylesheet"
                     />
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                    <title>Sam Boland</title>
-                    <meta name="description" content="Sam Bolad's website" />
                     <link rel="icon" href="/favicon.ico" />
                     <link rel="preconnect" href="https://fonts.googleapis.com" />
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
