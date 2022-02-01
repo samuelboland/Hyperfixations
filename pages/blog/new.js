@@ -2,6 +2,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useSession, signIn, signOut } from 'next-auth/react';
+import RequireAuth from '../../components/RequireAuth';
 
 const create = () => {
     const [title, setTitle] = useState('');
@@ -32,9 +33,8 @@ const create = () => {
         }
     };
 
-    const { data: session } = useSession();
-    if (session) {
-        return (
+    return (
+        <RequireAuth>
             <div>
                 <h1> New Post </h1>
                 <h2>{message}</h2>
@@ -55,15 +55,8 @@ const create = () => {
                     <div className="message">{message ? <p>{message}</p> : null}</div>
                 </form>
             </div>
-        );
-    } else {
-        return (
-            <>
-                Not signed in <br />
-                <button onClick={() => signIn()}>Sign in</button>
-            </>
-        );
-    }
+        </RequireAuth>
+    );
 };
 
 export default create;
