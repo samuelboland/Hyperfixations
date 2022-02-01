@@ -51,7 +51,6 @@ const create = () => {
                         onChange={(e) => setBody(e.target.value)}
                     ></input>
                     <button type="submit">Create</button>
-                    <div className="message">{message ? <p>{message}</p> : null}</div>
                 </form>
             </div>
         </RequireAuth>
