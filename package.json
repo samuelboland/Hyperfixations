@@ -9,6 +9,7 @@
     },
     "dependencies": {
         "@next/eslint-plugin-next": "^12.0.9",
+        "animate.css": "^4.1.1",
         "axios": "^0.25.0",
         "marx-css": "^4.0.1",
         "mongodb": "^4.3.1",
@@ -17,6 +18,7 @@
         "qs": "^6.10.3",
         "react": "17.0.2",
         "react-dom": "17.0.2",
+        "react-icons": "^4.3.1",
         "react-markdown": "^8.0.0",
         "rehype-react": "^7.0.4",
         "remark-parse": "^10.0.1",
