@@ -1,5 +1,6 @@
 import clientPromise from '../../lib/mongodb';
 import { getSession } from 'next-auth/react';
+import { ObjectId } from 'mongodb';
 
 const MONGODB_DB_NAME = process.env.MONGODB_DB_NAME;
 
@@ -18,6 +19,16 @@ export async function newPost(req) {
     let newPost = await db.collection('posts').insertOne(bodyObject);
     console.log(newPost);
     return newPost.acknowledged;
+}
+
+export async function deletePost(req) {
+    console.log(req.body);
+    const client = await clientPromise;
+    const db = client.db(MONGODB_DB_NAME);
+    const postId = req.body;
+    const deletedPost = await db.collection('posts').deleteOne({ _id: ObjectId(postId) });
+    console.log(deletePost);
+    return deletedPost;
 }
 
 export default async function handler(req, res) {
