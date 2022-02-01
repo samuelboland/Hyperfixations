@@ -1,20 +1,14 @@
-import React from 'react';
-import Header from './header';
 import Footer from './footer';
+import Header from './header';
 
-import Router, { useRouter } from 'next/router';
+const Layout = ({ children }) => {
+    return (
+        <>
+            <Header />
+            {children}
+            <Footer />
+        </>
+    );
+};
 
-export default function Layout({ children }) {
-    const router = useRouter();
-    if (router.pathname != '/home') {
-        return (
-            <>
-                <Header />
-                {children}
-                <Footer />
-            </>
-        );
-    } else {
-        return <>{children}</>;
-    }
-}
+export default Layout;
