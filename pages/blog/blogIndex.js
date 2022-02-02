@@ -7,7 +7,6 @@ import TiptapDisplay from '../../components/TipTapDisplay';
 import styles from './blog.module.scss';
 
 const blogIndex = ({ posts }) => {
-    const [message, setMessage] = useState('');
     const handleDelete = async (e, id) => {
         e.preventDefault();
         try {
@@ -20,8 +19,6 @@ const blogIndex = ({ posts }) => {
                 body: JSON.stringify(id),
             });
             if (res.status === 200) {
-                setTitle('');
-                setBody('');
                 setMessage('Post Deleted');
             } else {
                 setMessage('Something went wrong');
@@ -44,7 +41,6 @@ const blogIndex = ({ posts }) => {
                                 Delete
                             </button>
                         </RequireAuth>
-                        {message}
                     </div>
                 ))}
             </main>
