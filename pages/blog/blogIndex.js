@@ -1,12 +1,38 @@
 import AnimationWrapper from '../../components/AnimationWrapper';
 import { getPosts } from '../api/mongoDB_posts';
-import { React, useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import RequireAuth from '../../components/RequireAuth';
 import TiptapDisplay from '../../components/TiptapDisplay';
+import { AiOutlineDelete } from 'react-icons/ai';
 
 import styles from './blog.module.scss';
 
 const blogIndex = ({ posts }) => {
+    // My initial implementation of the delete button did not ask for confirmation. I don't want
+    // to accidentally delete my post by clicking once in the wrong place,
+    // so I added this ConfirmationButton component.
+    const ConfirmationButton = (props) => {
+        const [confirm, setConfirm] = useState(false);
+
+        if (confirm === false) {
+            return (
+                <button onClick={(e) => setConfirm(true)}>
+                    <AiOutlineDelete />
+                </button>
+            );
+        } else {
+            return (
+                <button
+                    onClick={(e) => {
+                        handleDelete(e, props.post._id);
+                    }}
+                >
+                    <AiOutlineDelete /> Are you sure?
+                </button>
+            );
+        }
+    };
+
     const handleDelete = async (e, id) => {
         e.preventDefault();
         try {
@@ -28,19 +54,29 @@ const blogIndex = ({ posts }) => {
         }
     };
 
+    const DateFormatter = (props) => {
+        const event = new Date(props.date * 1000); // Conver to milliseconds for some silly reason
+        console.log(props.date);
+        const dateString = event.toLocaleDateString();
+        console.log(dateString);
+        return <>{dateString}</>;
+    };
+
     return (
         <AnimationWrapper>
             <main>
                 {posts.map((post) => (
                     <div key={post._id}>
                         <h2 className={styles.post_header}>{post.title}</h2>
+                        <div className={styles.postErrata}>
+                            <p>
+                                <DateFormatter date={post.created_at} />
+                            </p>
+                            <RequireAuth>
+                                <ConfirmationButton post={post} />
+                            </RequireAuth>
+                        </div>
                         <TiptapDisplay content={post.body} />
-
-                        <RequireAuth>
-                            <button onClick={(e) => handleDelete(e, post._id, posts)}>
-                                Delete
-                            </button>
-                        </RequireAuth>
                     </div>
                 ))}
             </main>
