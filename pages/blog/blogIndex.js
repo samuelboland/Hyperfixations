@@ -2,7 +2,7 @@ import AnimationWrapper from '../../components/AnimationWrapper';
 import { getPosts } from '../api/mongoDB_posts';
 import { React, useState } from 'react';
 import RequireAuth from '../../components/RequireAuth';
-import TiptapDisplay from '../../components/TipTapDisplay';
+import TiptapDisplay from '../../components/TiptapDisplay';
 
 import styles from './blog.module.scss';
 
