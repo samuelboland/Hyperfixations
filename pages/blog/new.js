@@ -33,6 +33,8 @@ const create = () => {
         }
     };
 
+    const startingText = '<p><span style="color: #959493">body</span></p>';
+
     return (
         <RequireAuth>
             <main>
@@ -44,11 +46,12 @@ const create = () => {
                         value={title}
                         placeholder="title"
                         onChange={(e) => setTitle(e.target.value)}
-                    ></input>
+                    />
                     <TiptapEdit
                         stateHandler={(text) => {
                             setBody(text);
                         }}
+                        content={startingText}
                     />
                     <button type="submit">Create</button>
                     {body}

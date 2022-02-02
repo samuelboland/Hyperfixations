@@ -152,7 +152,6 @@ const TiptapEdit = (props) => {
             // data that's being returned. It can do whatever it wants with it.
         },
         onCreate: ({ editor }) => {
-            console.log('created');
             editor.commands.setContent(initialContent);
         },
     });
@@ -171,8 +170,6 @@ const TiptapEdit = (props) => {
                 editor={editor}
                 className={styles.inputBox}
                 onFocus={(e) => {
-                    console.log(e);
-                    console.log(hasBeenFocusedAlready);
                     hasBeenFocusedAlready ? null : editor.commands.setContent('');
                     setHasBeenFocusedAlready(true);
                 }}

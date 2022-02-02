@@ -8,7 +8,6 @@ const TiptapDisplay = (props) => {
         content: props.content,
         extensions: [StarterKit],
     });
-    console.log(props.content);
     return (
         <>
             <EditorContent editor={editor} />

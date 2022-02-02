@@ -17,17 +17,14 @@ export async function newPost(req) {
     const db = client.db(MONGODB_DB_NAME);
     let bodyObject = JSON.parse(JSON.stringify(req.body));
     let newPost = await db.collection('posts').insertOne(bodyObject);
-    console.log(newPost);
     return newPost.acknowledged;
 }
 
 export async function deletePost(req) {
-    console.log(req.body);
     const client = await clientPromise;
     const db = client.db(MONGODB_DB_NAME);
     const postId = req.body;
     const deletedPost = await db.collection('posts').deleteOne({ _id: ObjectId(postId) });
-    console.log(deletePost);
     return deletedPost;
 }
 
