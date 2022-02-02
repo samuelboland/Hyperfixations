@@ -32,3 +32,13 @@ a{
         color: $accent-color
     }
 }
+
+.ProseMirror p {
+    padding: 1em;
+    background: var(--white);
+    border: var(--border);
+    border-radius: var(--br);
+    color: var(--text);
+    width: 100%;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  }
