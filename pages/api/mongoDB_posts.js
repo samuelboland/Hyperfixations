@@ -7,7 +7,7 @@ const MONGODB_DB_NAME = process.env.MONGODB_DB_NAME;
 export async function getPosts() {
     const client = await clientPromise;
     const db = client.db(MONGODB_DB_NAME);
-    const data = await db.collection('posts').find({}).toArray();
+    const data = await db.collection('posts').find({}).sort({ created_at: -1 }).toArray();
     const posts = JSON.parse(JSON.stringify(data));
     return posts;
 }
