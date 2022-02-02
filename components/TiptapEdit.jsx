@@ -163,7 +163,6 @@ const TiptapEdit = (props) => {
             <MenuBar editor={editor} />
             <EditorContent
                 editor={editor}
-                className={styles.inputBox}
                 onFocus={(e) => {
                     hasBeenFocusedAlready ? null : editor.commands.setContent('');
                     setHasBeenFocusedAlready(true);
