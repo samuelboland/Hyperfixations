@@ -3,11 +3,12 @@ import { getSession } from 'next-auth/react';
 import { ObjectId } from 'mongodb';
 
 const MONGODB_DB_NAME = process.env.MONGODB_DB_NAME;
+const collection = 'posts';
 
 export async function getPosts() {
     const client = await clientPromise;
     const db = client.db(MONGODB_DB_NAME);
-    const data = await db.collection('posts').find({}).sort({ created_at: -1 }).toArray();
+    const data = await db.collection(collection).find({}).sort({ created_at: -1 }).toArray();
     const posts = JSON.parse(JSON.stringify(data));
     return posts;
 }
@@ -16,7 +17,7 @@ export async function newPost(req) {
     const client = await clientPromise;
     const db = client.db(MONGODB_DB_NAME);
     let bodyObject = JSON.parse(JSON.stringify(req.body));
-    let newPost = await db.collection('posts').insertOne(bodyObject);
+    let newPost = await db.collection(collection).insertOne(bodyObject);
     return newPost.acknowledged;
 }
 
@@ -24,7 +25,7 @@ export async function deletePost(req) {
     const client = await clientPromise;
     const db = client.db(MONGODB_DB_NAME);
     const postId = req.body;
-    const deletedPost = await db.collection('posts').deleteOne({ _id: ObjectId(postId) });
+    const deletedPost = await db.collection(collection).deleteOne({ _id: ObjectId(postId) });
     return deletedPost;
 }
 
