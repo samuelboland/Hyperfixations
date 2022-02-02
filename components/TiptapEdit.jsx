@@ -121,11 +121,6 @@ const MenuBar = ({ editor }) => {
             <button onClick={() => editor.chain().focus().redo().run()}>
                 <AiOutlineRedo />
             </button>
-            <input
-                type="color"
-                onInput={(event) => editor.chain().focus().setColor(event.target.value).run()}
-                value={editor.getAttributes('textStyle').color}
-            />
         </>
     );
 };
