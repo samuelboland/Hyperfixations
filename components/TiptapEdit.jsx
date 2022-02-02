@@ -1,5 +1,9 @@
+import { useEffect, useState } from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
+import TextStyle from '@tiptap/extension-text-style';
+import { Color } from '@tiptap/extension-color';
+
 import {
     AiOutlineBold,
     AiOutlineItalic,
@@ -12,7 +16,6 @@ import {
     AiOutlineUndo,
     AiOutlineRedo,
 } from 'react-icons/ai';
-
 import { BsChatRightQuote } from 'react-icons/bs';
 
 import styles from './Tiptap.module.scss';
@@ -118,6 +121,11 @@ const MenuBar = ({ editor }) => {
             <button onClick={() => editor.chain().focus().redo().run()}>
                 <AiOutlineRedo />
             </button>
+            <input
+                type="color"
+                onInput={(event) => editor.chain().focus().setColor(event.target.value).run()}
+                value={editor.getAttributes('textStyle').color}
+            />
         </>
     );
 };
@@ -133,21 +141,44 @@ const MenuBar = ({ editor }) => {
 // function to this child element. Let's see if that works!
 
 const TiptapEdit = (props) => {
+    const [hasBeenFocusedAlready, setHasBeenFocusedAlready] = useState(false);
+    const [initialContent, setInitialContent] = useState(props.content);
+
     const editor = useEditor({
-        extensions: [StarterKit],
-        content: '<p>Hello World! 🌎️</p>',
+        extensions: [StarterKit, TextStyle, Color],
         onUpdate: ({ editor }) => {
             props.stateHandler(editor.getHTML());
             // I expect the parent element to pass a "stateHandler" function that deals with this
             // data that's being returned. It can do whatever it wants with it.
         },
+        onCreate: ({ editor }) => {
+            console.log('created');
+            editor.commands.setContent(initialContent);
+        },
     });
 
+    // Ok I'm getting a little fancy here, but: I have starting text in this editor. It is regular
+    // text, and so I'd need to delete it to type. What if I delete it automatically on my first
+    // focus? That would be cool. Let's do that!
+    useEffect((editor) => {
+        setHasBeenFocusedAlready(false);
+    }, []);
+
     return (
-        <main className={styles.editor}>
+        <div className={styles.editor}>
             <MenuBar editor={editor} />
-            <EditorContent editor={editor} />
-        </main>
+            <EditorContent
+                editor={editor}
+                className={styles.inputBox}
+                onFocus={(e) => {
+                    console.log(e);
+                    console.log(hasBeenFocusedAlready);
+                    hasBeenFocusedAlready ? null : editor.commands.setContent('');
+                    setHasBeenFocusedAlready(true);
+                }}
+            />
+            {}
+        </div>
     );
 };
 
