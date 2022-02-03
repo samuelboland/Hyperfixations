@@ -7,7 +7,7 @@ const Header = () => {
             <nav className={styles.header}>
                 <Link href="/">
                     <a>
-                        <h1>Hyperfixation </h1>
+                        <h1> Hyperfixations </h1>
                     </a>
                 </Link>
                 <div className={styles.subtitle}> Approximate Knowledge of Many Things </div>
