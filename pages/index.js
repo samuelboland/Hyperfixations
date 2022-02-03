@@ -8,7 +8,7 @@ export default function Home() {
             <div>
                 <main>
                     <div>
-                        <Link href="/blog/blogIndex">
+                        <Link href="/blog/">
                             <a>
                                 <h2>Blog </h2>
                             </a>
