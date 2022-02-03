@@ -15,6 +15,15 @@ const customJestConfig = {
     testEnvironment: 'jest-environment-jsdom',
     setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
     collectCoverage: true,
+    collectCoverageFrom: [
+        '**/*.{js,jsx}',
+        '!**/node_modules/**',
+        '!**/.next/**',
+        '!**/.vercel/**',
+        '!**/__coverage__/**',
+        '!jest.config.js',
+        '!next.config.js',
+    ],
     coverageReporters: ['lcov'],
     coverageDirectory: '__coverage__',
 };
