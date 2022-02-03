@@ -8,7 +8,6 @@ import {
     AiOutlineBold,
     AiOutlineItalic,
     AiOutlineStrikethrough,
-    AiOutlineUnderline,
     AiOutlineCode,
     AiOutlineUnorderedList,
     AiOutlineOrderedList,

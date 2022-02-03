@@ -1,10 +1,8 @@
 import styles from './layout.module.scss';
 import Link from 'next/link';
-import Router, { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 
 const Header = () => {
-    const router = useRouter();
-
     return (
         <main>
             <nav className={styles.header}>
