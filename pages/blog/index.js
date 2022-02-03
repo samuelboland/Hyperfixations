@@ -55,10 +55,8 @@ const blogIndex = ({ posts }) => {
     };
 
     const DateFormatter = (props) => {
-        const event = new Date(props.date * 1000); // Conver to milliseconds for some silly reason
-        console.log(props.date);
+        const event = new Date(props.date);
         const dateString = event.toLocaleDateString();
-        console.log(dateString);
         return <>{dateString}</>;
     };
 
