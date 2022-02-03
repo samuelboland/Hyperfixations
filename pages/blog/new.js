@@ -10,7 +10,8 @@ const create = () => {
     const [message, setMessage] = useState('Not Submitted');
 
     const handleSubmit = async (e) => {
-        const newPost = { title: title, body: body };
+        const date = Date.now();
+        const newPost = { title: title, body: body, created_at: date };
         e.preventDefault();
         try {
             let res = await fetch('/api/mongoDB_posts', {
