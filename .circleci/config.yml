@@ -4,39 +4,39 @@ version: 2.1
 # Orbs are reusable packages of CircleCI configuration that you may share across projects, enabling you to create encapsulated, parameterized commands, jobs, and executors that can be used across multiple projects.
 # See: https://circleci.com/docs/2.0/orb-intro/
 orbs:
-  node: circleci/node@4.7
+    node: circleci/node@4.7
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 
-jobs: 
-  test:
-    docker:
-      - image: cimg/node:17.0.1
-    steps: 
-      - checkout
-      # look for existing cache and restore if found
-      - restore_cache:
-          keys:
-            - v1-deps-{{checksum "package-lock.json"}}
-            - v1-deps-
-      # install dependencies
-      - run:
-          name: install dependencies
-          command: npm install
-      # cache dependencies
-      - save_cache: 
-          paths:
-            - node_modules
-          key: v1-deps-{{checksum "package-lock.json"}}
-      # run test suite
-      - run:
-          name: test
-          command: npm run test
-
+jobs:
+    test:
+        docker:
+            - image: cimg/node:17.0.1
+        resource_class: small
+        steps:
+            - checkout
+            # look for existing cache and restore if found
+            - restore_cache:
+                  keys:
+                      - v1-deps-{{checksum "package-lock.json"}}
+                      - v1-deps-
+            # install dependencies
+            - run:
+                  name: install dependencies
+                  command: npm install
+            # cache dependencies
+            - save_cache:
+                  paths:
+                      - node_modules
+                  key: v1-deps-{{checksum "package-lock.json"}}
+            # run test suite
+            - run:
+                  name: test
+                  command: npm run test
 
 workflows:
-  Run Tests: # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
-    jobs:
-      - test
+    Run Tests: # This is the name of the workflow, feel free to change it to better match your workflow.
+        # Inside the workflow, you define the jobs you want to run.
+        jobs:
+            - test
