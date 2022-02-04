@@ -77,3 +77,5 @@ workflows:
                             path: coverage
                       - codecov/upload
             - cypress-tests
+            - cypress/run
+                
