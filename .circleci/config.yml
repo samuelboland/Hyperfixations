@@ -4,78 +4,17 @@ version: 2.1
 # Orbs are reusable packages of CircleCI configuration that you may share across projects, enabling you to create encapsulated, parameterized commands, jobs, and executors that can be used across multiple projects.
 # See: https://circleci.com/docs/2.0/orb-intro/
 orbs:
-    node: circleci/node@4.7
+    node: circleci/node@5.0.0
     cypress: cypress-io/cypress@1.29.0
     codecov: codecov/codecov@3.2.2
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 
-jobs:
-    jest:
-        docker:
-            - image: cimg/node:16.13.2
-        resource_class: small
-        steps:
-            - checkout
-            # look for existing cache and restore if found
-            - restore_cache:
-                  keys:
-                      - v1-deps-{{checksum "package-lock.json"}}
-                      - v1-deps-
-            # install dependencies
-            - run:
-                  name: install dependencies
-                  command: npm install
-            # cache dependencies
-            - save_cache:
-                  paths:
-                      - node_modules
-                  key: v1-deps-{{checksum "package-lock.json"}}
-            - run:
-                  name: Jest
-                  command: npm run test
-            - store_artifacts:
-                  path: coverage_jest
-            - codecov/upload:
-                validate: true
-                file: coverage_jest/cobertura-coverage.xml
-                flags: jest
-    cypress:
-        docker:
-            - image: cimg/node:16.13.2
-        resource_class: small
-        steps:
-            - checkout
-            # look for existing cache and restore if found
-            - restore_cache:
-                  keys:
-                      - v1-deps-{{checksum "package-lock.json"}}
-                      - v1-deps-
-            # install dependencies
-            - run:
-                  name: install dependencies
-                  command: npm install
-            - save_cache:
-                  paths:
-                      - node_modules
-                  key: v1-deps-{{checksum "package-lock.json"}}
-            - cypress/install
-            - run:
-                name: Cypress
-                command: npm run cypress:ci
-            - store_artifacts:
-                  path: coverage_jest
-            - codecov/upload:
-                validate: true
-                file: coverage_cypress/clover.xml
-                flags: cypress              
-                
-
 workflows:
-    Run Tests: # This is the name of the workflow, feel free to change it to better match your workflow.
-        # Inside the workflow, you define the jobs you want to run.
-        jobs:
-            - jest
-            - cypress
-            
+    example-workflow:
+        jobs: 
+            - node/test:
+                    pkg-manager: npm
+                    test-results-for: other
+                    run-command: test:ci
