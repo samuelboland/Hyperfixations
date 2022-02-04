@@ -6,7 +6,10 @@
 .pnp.js
 
 # testing
-/__coverage__
+/coverage_jest
+/coverage_cypress
+.babelrc
+.nyc_output/
 
 # next.js
 /.next/
