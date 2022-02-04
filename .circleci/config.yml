@@ -11,6 +11,20 @@ orbs:
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Commands ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+commands:
+  report-coverage:
+    description: |
+      Store coverage report as an artifact and send it to Codecov service.
+    steps:
+      - store_artifacts:
+          path: coverage
+      - run: npx nyc report --reporter=text || true
+      - codecov/upload:
+          file: coverage/coverage-final.json
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Workflows ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 workflows:
     example-workflow:
         jobs: 
@@ -18,9 +32,6 @@ workflows:
                     pkg-manager: npm
                     test-results-for: other
                     run-command: test:ci
-            - cypress/install:
-                build: npm run build
-            - cypress/run:
-                requires:
-                    - cypress/install
-                start: 'npm start'
+                    post-steps:
+                        - report-coverage
+            
