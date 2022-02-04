@@ -61,8 +61,8 @@ jobs:
                       - node_modules
                   key: v1-deps-{{checksum "package-lock.json"}}
             - run:
-                  name: Cypress
-                  command: npm run cypress:ci      
+                  name: Cypress Install
+                  command: npm run cypress install     
             - run:
                 name: Cypress
                 command: npm run cypress:ci
