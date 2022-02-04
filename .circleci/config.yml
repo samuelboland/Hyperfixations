@@ -18,6 +18,9 @@ workflows:
                     pkg-manager: npm
                     test-results-for: other
                     run-command: test:ci
+            - cypress/install:
+                build: npm run build
             - cypress/run:
-                start: cypress/install
-            
+                requires:
+                    - cypress/install
+                start: 'npm start'
