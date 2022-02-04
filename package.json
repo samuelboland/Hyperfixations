@@ -14,7 +14,8 @@
         "test:ci": "jest --ci",
         "test:coverage": "jest --coverage",
         "test:report": "open __coverage__/lcov-report/index.html",
-        "cypress": "cypress open"
+        "cypress:open": "cypress open",
+        "cypress:ci": "cypress run"
     },
     "dependencies": {
         "@next/eslint-plugin-next": "^12.0.9",
