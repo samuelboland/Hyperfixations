@@ -19,5 +19,5 @@ workflows:
                     test-results-for: other
                     run-command: test:ci
             - cypress/run:
-                start: npm start
+                start: cypress/install
             
