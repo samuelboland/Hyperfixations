@@ -38,7 +38,7 @@ jobs:
                 - ~/.cache
         - run:
             name: Start server
-            command: npm run
+            command: npm run start
         - run: $(npm bin)/cypress run
         - store_artifacts:
             path: ~/repo/coverage
