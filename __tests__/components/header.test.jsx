@@ -18,4 +18,12 @@ describe('Header', () => {
         const tagline = screen.getByText('Approximate Knowledge of Many Things');
         expect(tagline).toBeInTheDocument();
     });
+
+    it('Links to the home page', () => {
+        render(<Header />);
+
+        const link = screen.getByRole('link');
+
+        expect(link).toHaveAttribute('href', '/');
+    });
 });
