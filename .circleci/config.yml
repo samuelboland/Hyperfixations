@@ -31,11 +31,17 @@ jobs:
         - run:
             name: Install Dependencies
             command: npm ci
+
+        - run: 
+            name: Install Vercel CLI
+            command: npm install vercel
+
         - save_cache:
             key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
             paths: 
                 - ~/.npm
                 - ~/.cache
+
         - run:
             name: Get Vercel Env Vars
             command: vercel env pull -t $VERCEL_KEY
