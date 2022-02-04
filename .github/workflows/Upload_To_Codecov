@@ -1,0 +1,15 @@
+name: Upload Coverage Report to Codecov
+on: [push]
+jobs:
+  Upload To Codecov:
+   runs-on: ubuntu-latest
+  steps:
+  - uses: actions/checkout@master
+  - uses: codecov/codecov-action@v2
+    with:
+      token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+      files: ./__coverage__/cobertura-coverage.xml
+      flags: unittests # optional
+      name: codecov-umbrella # optional
+      fail_ci_if_error: true # optional (default = false)
+      verbose: true # optional (default = false)    
