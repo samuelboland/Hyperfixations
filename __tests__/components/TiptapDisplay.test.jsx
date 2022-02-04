@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import TiptapDisplay from '../components/TiptapDisplay';
+import TiptapDisplay from '../../components/TiptapDisplay';
 
 describe('Tiptap Displayer', () => {
     it('Displays text that is given to it as valid HTML', () => {
