@@ -64,6 +64,15 @@ jobs:
             - store_artifacts:
                   path: ~/repo/coverage
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Executors for Cypress ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+
+# List of executors can be found here: https://github.com/cypress-io/cypress-docker-images/tree/master/browsers
+executors:
+  with-chrome:
+    docker:
+      - image: 'cypress/browsers:node16.5.0-chrome97-ff96'
+
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Workflows ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 workflows:
     example-workflow:
@@ -76,6 +85,9 @@ workflows:
                       - store_artifacts:
                             path: coverage
                       - codecov/upload
-            - cypress-tests
-            - cypress/run
+#            - cypress-tests
+            - cypress/run:
+                executor: with-chrome
+                browser: chrome
+
                 
