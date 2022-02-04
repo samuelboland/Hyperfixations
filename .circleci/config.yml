@@ -18,3 +18,5 @@ workflows:
                     pkg-manager: npm
                     test-results-for: other
                     run-command: test:ci
+            - cypress/run
+            
