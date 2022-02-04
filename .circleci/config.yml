@@ -37,6 +37,10 @@ jobs:
                 - ~/.npm
                 - ~/.cache
         - run:
+            name: Get Vercel Env Vars
+            command: vercel env pull -t $VERCEL_KEY
+
+        - run:
             name: Build App
             command: npm run build
         - run:
