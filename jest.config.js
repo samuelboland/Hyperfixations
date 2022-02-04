@@ -24,7 +24,7 @@ const customJestConfig = {
         '!jest.config.js',
         '!next.config.js',
     ],
-    coverageReporters: ['lcov'],
+    coverageReporters: ['lcov', 'html', 'text', 'text-summary', 'cobertura'],
     coverageDirectory: '__coverage__',
 };
 
