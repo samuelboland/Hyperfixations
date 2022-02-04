@@ -12,7 +12,7 @@ orbs:
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 
 jobs:
-    jest:
+    tests:
         docker:
             - image: cimg/node:16.13.2
         resource_class: small
@@ -35,6 +35,13 @@ jobs:
             - run:
                   name: Jest
                   command: npm run test
+            - run:
+                name: Cypress
+                command: npm run cypress:ci
+            - codecov/upload:
+                validate: true
+                file: coverage_cypress/clover.xml
+                flags: cypress
             - store_artifacts:
                   path: coverage_jest
             - codecov/upload:
@@ -46,25 +53,5 @@ workflows:
     Run Tests: # This is the name of the workflow, feel free to change it to better match your workflow.
         # Inside the workflow, you define the jobs you want to run.
         jobs:
-            - jest
-            - cypress/install
-            - cypress/run:
-                name: Cypress Testing
-                requires:
-                    - cypress/install
-                attach-workspace: true
-                start: npm start
-                # There are no jobs after this one
-                # so no need to spend time saving workspace
-                no-workspace: true
-                post-steps: 
-                    # store the created coverage report folder
-                    # can click on it in the CircleCI UI
-                    # to see live static HTML site
-                    - store_artifacts:
-                        path: coverage_cypress
-                    - codecov/upload:
-                        validate: true
-                        file: coverage_cypress/clover.xml
-                        flags: cypress 
-
+            - tests
+            
