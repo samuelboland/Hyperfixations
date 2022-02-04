@@ -37,6 +37,9 @@ jobs:
                 - ~/.npm
                 - ~/.cache
         - run:
+            name: Build App
+            command: npm run build
+        - run:
             name: Start server
             command: npm run start
         - run: $(npm bin)/cypress run
