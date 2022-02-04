@@ -32,6 +32,7 @@ workflows:
                     pkg-manager: npm
                     test-results-for: other
                     run-command: test:ci
-                    post-steps:
-                        - report-coverage-jest
-            
+                    post-steps: 
+                        - store_artifacts:
+                            path: coverage            
+                        - codecov/upload
