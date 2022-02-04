@@ -13,7 +13,7 @@ orbs:
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Commands ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 commands:
-  report-coverage:
+  report-coverage-jest:
     description: |
       Store coverage report as an artifact and send it to Codecov service.
     steps:
@@ -21,7 +21,7 @@ commands:
           path: coverage
       - run: npx nyc report --reporter=text || true
       - codecov/upload:
-          file: coverage/coverage-final.json
+          file: coverage_jest/coverage-final.json
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Workflows ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
@@ -33,5 +33,5 @@ workflows:
                     test-results-for: other
                     run-command: test:ci
                     post-steps:
-                        - report-coverage
+                        - report-coverage-jest
             
