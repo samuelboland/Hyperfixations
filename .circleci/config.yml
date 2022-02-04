@@ -34,9 +34,6 @@ jobs:
             - run:
                   name: test
                   command: npm run test
-            # store results for analysis
-            - store_test_results:
-                path: test-results
 
 workflows:
     Run Tests: # This is the name of the workflow, feel free to change it to better match your workflow.
