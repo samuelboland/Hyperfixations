@@ -86,8 +86,14 @@ workflows:
                             path: coverage
                       - codecov/upload
 #            - cypress-tests
+            - cypress/install
             - cypress/run:
                 executor: with-chrome
                 browser: chrome
+                requires: 
+                    - cypress/install
+                attach-workspace: true
+                wait-on: 
+                    "http-get://localhost:3000"
 
                 
