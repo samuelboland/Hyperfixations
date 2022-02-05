@@ -31,9 +31,8 @@ workflows:
                   run-command: test:ci
                   post-steps:
                       - store_artifacts:
-                            path: coverage_jest
+                            path: coverage
                       - codecov/upload
-#            - cypress-tests
             - cypress/install:
                 build: npm run build
             - cypress/run:

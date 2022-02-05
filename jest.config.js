@@ -25,7 +25,7 @@ const customJestConfig = {
         '!next.config.js',
     ],
     coverageReporters: ['html', 'cobertura'],
-    coverageDirectory: 'coverage_jest',
+    //coverageDirectory: 'coverage_jest',
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
