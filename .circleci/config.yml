@@ -47,7 +47,7 @@ workflows:
                     "http-get://localhost:3000"
                 post-steps: 
                     - store_artifacts: 
-                          path: coverage_cypress
+                          path: coverage
                     - codecov/upload
 
                 
