@@ -33,7 +33,6 @@ workflows:
                       - store_artifacts:
                             path: coverage
                       - codecov/upload
-#            - cypress-tests
             - cypress/install:
                 build: npm run build
             - cypress/run:
