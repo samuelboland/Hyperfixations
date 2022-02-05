@@ -2,7 +2,7 @@
     "name": "personal_site_nextjs",
     "private": true,
     "nyc": {
-        "report-dir": "coverage_cypress"
+        "report-dir": "coverage"
     },
     "scripts": {
         "dev": "next dev",

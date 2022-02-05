@@ -6,9 +6,7 @@
 .pnp.js
 
 # testing
-/coverage_jest
-/coverage_cypress
-.babelrc
+/coverage
 .nyc_output/
 /cypress/videos
 
