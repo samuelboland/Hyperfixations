@@ -31,7 +31,7 @@ workflows:
                   run-command: test:ci
                   post-steps:
                       - store_artifacts:
-                            path: coverage
+                            path: coverage_jest
                       - codecov/upload
 #            - cypress-tests
             - cypress/install:
@@ -48,7 +48,7 @@ workflows:
                     "http-get://localhost:3000"
                 post-steps: 
                     - store_artifacts: 
-                          path: coverage
+                          path: coverage_cypress
                     - codecov/upload
 
                 
