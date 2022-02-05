@@ -23,7 +23,7 @@ executors:
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Workflows ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 workflows:
-    example-workflow:
+    Application Test:
         jobs:
             - node/test:
                   pkg-manager: npm
@@ -46,5 +46,9 @@ workflows:
                 start: npm run start
                 wait-on: 
                     "http-get://localhost:3000"
+                post-steps: 
+                    - store_artifacts: 
+                          path: coverage
+                    - codecov/upload
 
                 
