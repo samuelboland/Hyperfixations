@@ -93,6 +93,7 @@ workflows:
                 requires: 
                     - cypress/install
                 attach-workspace: true
+                start: npm run start
                 wait-on: 
                     "http-get://localhost:3000"
 
