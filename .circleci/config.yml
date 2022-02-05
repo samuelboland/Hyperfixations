@@ -86,12 +86,14 @@ workflows:
                             path: coverage
                       - codecov/upload
 #            - cypress-tests
-            - cypress/install
+            - cypress/install:
+                build: npm run build
             - cypress/run:
                 executor: with-chrome
                 browser: chrome
                 requires: 
                     - cypress/install
+                        
                 attach-workspace: true
                 start: npm run start
                 wait-on: 
