@@ -23,8 +23,9 @@
         "test:watch": "jest --watch",
         "test:ci": "jest --ci",
         "test:coverage": "jest --coverage",
+        "cov": "open -a 'Google Chrome' coverage/index.html ",
         "cypress:open": "cypress open",
-        "cypress:ci": "cypress run"
+        "cypress:ci": "cypress run --quiet"
     },
     "dependencies": {
         "@next/eslint-plugin-next": "^12.0.9",
@@ -53,6 +54,7 @@
     },
     "devDependencies": {
         "@cypress/code-coverage": "^3.9.12",
+        "@testing-library/cypress": "^8.0.2",
         "@testing-library/jest-dom": "^5.16.2",
         "@testing-library/react": "^12.1.2",
         "babel-plugin-istanbul": "^6.1.1",
