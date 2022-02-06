@@ -1,5 +1,5 @@
 const Footer = () => {
-    return <footer>This is a footer!</footer>;
+    return <footer data-cy="footer">This is a footer!</footer>;
 };
 
 export default Footer;

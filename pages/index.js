@@ -9,11 +9,13 @@ export default function Home() {
                 <main>
                     <div>
                         <Link href="/blog/">
-                            <a>
-                                <h2>Blog </h2>
+                            <a data-cy="indexLinkForBlog">
+                                <h2 data-cy="indexTextForBlog">Blog </h2>
                             </a>
                         </Link>
-                        <p>Sometimes, I think about things and put them on the internet.</p>
+                        <p data-cy="indexBlurbForBlog">
+                            Sometimes, I think about things and put them on the internet.
+                        </p>
                     </div>
                 </main>
             </div>

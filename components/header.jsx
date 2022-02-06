@@ -6,11 +6,14 @@ const Header = () => {
         <main>
             <nav className={styles.header}>
                 <Link href="/">
-                    <a>
-                        <h1> Hyperfixations </h1>
+                    <a data-cy="headerLink">
+                        <h1 data-cy="headerText"> Hyperfixations </h1>
                     </a>
                 </Link>
-                <div className={styles.subtitle}> Approximate Knowledge of Many Things </div>
+                <div className={styles.subtitle} data-cy="headerSubtitle">
+                    {' '}
+                    Approximate Knowledge of Many Things{' '}
+                </div>
             </nav>
         </main>
     );
