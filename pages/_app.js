@@ -1,5 +1,4 @@
 import React from 'react';
-import { SessionProvider } from 'next-auth/react';
 import 'marx-css';
 import '../styles/globals.scss';
 import { AnimatePresence } from 'framer-motion';
