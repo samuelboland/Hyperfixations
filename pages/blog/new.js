@@ -1,7 +1,6 @@
 //import { newPost } from '../api/mongoDB_posts';
 import React from 'react';
 import { useState } from 'react';
-import RequireAuth from '../../components/RequireAuth';
 import TiptapEdit from '../../components/TiptapEdit';
 
 const create = () => {
@@ -37,28 +36,26 @@ const create = () => {
     const startingText = '<p><span style="color: #959493">body</span></p>';
 
     return (
-        <RequireAuth>
-            <main>
-                <h1> New Post </h1>
-                <h2>{message}</h2>
-                <form onSubmit={handleSubmit}>
-                    <input
-                        type="text"
-                        value={title}
-                        placeholder="title"
-                        onChange={(e) => setTitle(e.target.value)}
-                    />
-                    <TiptapEdit
-                        stateHandler={(text) => {
-                            setBody(text);
-                        }}
-                        content={startingText}
-                    />
-                    <button type="submit">Create</button>
-                    {body}
-                </form>
-            </main>
-        </RequireAuth>
+        <main>
+            <h1> New Post </h1>
+            <h2>{message}</h2>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    value={title}
+                    placeholder="title"
+                    onChange={(e) => setTitle(e.target.value)}
+                />
+                <TiptapEdit
+                    stateHandler={(text) => {
+                        setBody(text);
+                    }}
+                    content={startingText}
+                />
+                <button type="submit">Create</button>
+                {body}
+            </form>
+        </main>
     );
 };
 
