@@ -8,7 +8,7 @@ import Head from 'next/head';
 
 export default function App({ Component, pageProps: { session, ...pageProps }, router }) {
     return (
-        <SessionProvider session={session}>
+        <>
             <Head>
                 {' '}
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,6 +24,6 @@ export default function App({ Component, pageProps: { session, ...pageProps }, r
                     <Component {...pageProps} key={router.pathname} />
                 </AnimatePresence>
             </Layout>
-        </SessionProvider>
+        </>
     );
 }
