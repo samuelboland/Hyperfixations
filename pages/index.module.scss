@@ -1,0 +1,13 @@
+@use '../styles/fonts.scss' as *;
+
+.introduction{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.subtitle {
+    font-size: 1rem;
+    align-self: left;
+}
