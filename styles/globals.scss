@@ -39,3 +39,19 @@ a {
     width: 100%;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
+.ProseMirror {
+    code {
+        word-break: break-word;
+        overflow-wrap: break-word;
+        -ms-word-break: break-word;
+        word-break: break-word;
+        -ms-hyphens: auto;
+        -moz-hyphens: auto;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+    }
+    pre {
+        word-wrap: break-all;
+    }
+}
