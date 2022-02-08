@@ -43,6 +43,7 @@ const create = () => {
                 <h2>{message}</h2>
                 <form onSubmit={handleSubmit}>
                     <input
+                        required
                         type="text"
                         value={title}
                         placeholder="title"
