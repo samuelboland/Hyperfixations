@@ -22,5 +22,8 @@ module.exports = (on, config) => {
 
     // It's IMPORTANT to return the config object
     // with any changed environment variables
+    if (config.testingType === 'component') {
+        injectNextDevServer(on, config);
+    }
     return config;
 };
