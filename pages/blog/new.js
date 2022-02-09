@@ -37,25 +37,30 @@ const create = () => {
 
     return (
         <main>
-                <h2>{message}</h2>
-                <form onSubmit={handleSubmit}>
-                    <input
-                        required
-                        type="text"
-                        value={title}
-                        placeholder="title"
-                        onChange={(e) => setTitle(e.target.value)}
-                    />
-                    <TiptapEdit
-                        stateHandler={(text) => {
-                            setBody(text);
-                        }}
-                        content={startingText}
-                    />
-                    <button type="submit">Create</button>
-                    {body}
-                </form>
-            </main>
+            <h1> New Post </h1>
+            <h2 data-cy="postStatusMessage">{message}</h2>
+            <form onSubmit={handleSubmit}>
+                <input
+                    required
+                    type="text"
+                    value={title}
+                    placeholder="title"
+                    data-cy="postTitleInput"
+                    onChange={(e) => setTitle(e.target.value)}
+                />
+                <TiptapEdit
+                    stateHandler={(text) => {
+                        setBody(text);
+                    }}
+                    content={startingText}
+                    // Canot put a data-cy here. It's in
+                    // the component itself instead.
+                />
+                <button type="submit" data-cy="postSubmitButton">
+                    Create
+                </button>
+            </form>
+        </main>
     );
 };
 
