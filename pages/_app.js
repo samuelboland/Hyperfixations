@@ -1,5 +1,4 @@
 import React from 'react';
-import { SessionProvider } from 'next-auth/react';
 import 'marx-css';
 import '../styles/globals.scss';
 import { AnimatePresence } from 'framer-motion';
@@ -8,7 +7,7 @@ import Head from 'next/head';
 
 export default function App({ Component, pageProps: { session, ...pageProps }, router }) {
     return (
-        <SessionProvider session={session}>
+        <>
             <Head>
                 {' '}
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,6 +23,6 @@ export default function App({ Component, pageProps: { session, ...pageProps }, r
                     <Component {...pageProps} key={router.pathname} />
                 </AnimatePresence>
             </Layout>
-        </SessionProvider>
+        </>
     );
 }

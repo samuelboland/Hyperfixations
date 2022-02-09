@@ -1,7 +1,6 @@
 //import { newPost } from '../api/mongoDB_posts';
 import React from 'react';
 import { useState } from 'react';
-import RequireAuth from '../../components/RequireAuth';
 import TiptapEdit from '../../components/TiptapEdit';
 
 const create = () => {
@@ -37,9 +36,7 @@ const create = () => {
     const startingText = '<p><span style="color: #959493">body</span></p>';
 
     return (
-        <RequireAuth>
-            <main>
-                <h1> New Post </h1>
+        <main>
                 <h2>{message}</h2>
                 <form onSubmit={handleSubmit}>
                     <input
@@ -59,7 +56,6 @@ const create = () => {
                     {body}
                 </form>
             </main>
-        </RequireAuth>
     );
 };
 
