@@ -1,3 +1,6 @@
+---
+lastmod: '2022-02-09T05:36:42.678Z'
+---
 # Personal Site
 
 This is my personal site to play, learn, and maybe advertise myself.
@@ -33,9 +36,15 @@ Note that code coverage reports are automatically generated and uploaded via Cir
 -   [Cypress] (https://www.cypress.io)
 -   [Istanbul](https://istanbul.js.org)
 
+
 ## Continuous Integration
 
 -   [CircleCI](https://circleci.com/)
+
+## Authentication
+- [Auth0](https://www.auth0.com/)
+- [Auth0 Next.js SDK](https://github.com/auth0/nextjs-auth0)
+  - Follow the instructions in the above repository to set up local authentication
 
 ## Utilities and other things
 
