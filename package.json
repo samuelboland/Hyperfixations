@@ -8,9 +8,12 @@
             "html"
         ],
         "include": [
-            "Components/**",
             "lib/**",
             "pages/**"
+        ],
+        "exclude": [
+            "pages/_document.js",
+            "**/*.scss"
         ],
         "all": true
     },
