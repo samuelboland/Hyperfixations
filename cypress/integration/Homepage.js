@@ -18,6 +18,6 @@ describe('Navigation', () => {
 
     it('Follows link to blog route', () => {
         cy.get('[data-cy="indexLinkForBlog"]').click();
-        cy.url().should('include', '/blog');
+        cy.url().should('include', '/posts');
     });
 });
