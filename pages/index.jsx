@@ -37,7 +37,7 @@ export default function Home() {
                         </p>
                     </div>
                     <div>
-                        <Link href="/blog/">
+                        <Link href="/posts">
                             <a data-cy="indexLinkForBlog">
                                 <h2 data-cy="indexTextForBlog">Development Diary </h2>
                             </a>
