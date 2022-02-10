@@ -1,7 +1,6 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import md from 'markdown-it';
-// https://css-tricks.com/responsible-markdown-in-next-js/
 
 export default function PostPage({ frontmatter, content }) {
     return (
