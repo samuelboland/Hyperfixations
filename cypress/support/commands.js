@@ -24,3 +24,18 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 import '@testing-library/cypress/add-commands';
+
+// Custom command to get "data-cy" elements more easily
+// https://ronvalstar.nl/useful-custom-cypress-commands
+// This aliases all data-cy attributes. So instead of
+// doing `cy.get(`[data-cy="something"]`)` You would do 
+// `cy.get(@something)`
+// Use by adding `beforeEach(() => cy.asAll()) to tests 
+Cypress.Commands.add('asAll', () => cy
+    .get('[data-cy]')
+    .then(list=>{
+      list.each((i, {dataset: {cy: name}})=>
+          cy.get(`[data-cy=${name}]`).as(name)
+      )
+    })
+)
