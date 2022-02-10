@@ -7,7 +7,7 @@ const variants = {
 };
 
 const AnimationWrapper = ({ children }) => (
-    <div>
+    <div data-cy="animationWrapper">
         <motion.main
             initial="hidden"
             animate="enter"

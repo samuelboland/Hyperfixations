@@ -11,8 +11,10 @@ export default function Home({ posts }) {
                     className="border border-gray-200 m-2 rounded-xl-1 shadow-lg overflow-hidden flex flex-col"
                 >
                     <Link href={`/posts/${slug}`}>
-                        <a>
-                            <h1 className="p-4">{frontmatter.title}</h1>
+                        <a data-cy="postIndexLink">
+                            <h1 className="p-4" data-cy="postIndexTitle">
+                                {frontmatter.title}
+                            </h1>
                         </a>
                     </Link>
                 </div>
