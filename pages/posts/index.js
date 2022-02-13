@@ -1,54 +1,60 @@
-import fs from 'fs';
 import matter from 'gray-matter';
-import Link from 'next/link';
+import md from 'markdown-it';
 
-export default function Home({ posts }) {
+const Test = (props) => {
+    const posts = props.message.sort((a, b) => b.date - a.date).reverse();
+
     return (
-        <div className="grid grid-cols-1 md:grid-cols3 lg:grid-cols-4 p-4 md:p-0">
-            {posts.map(({ slug, frontmatter, containsTodo }) => (
-                <div
-                    key={slug}
-                    className="border border-gray-200 m-2 rounded-xl-1 shadow-lg overflow-hidden flex flex-col"
-                >
-                    <Link href={`/posts/${slug}`}>
-                        <a data-cy="postIndexLink">
-                            <h1 className="p-4" data-cy="postIndexTitle">
-                                {frontmatter.title}
-                            </h1>
-                        </a>
-                    </Link>
-                </div>
-            ))}
+        <div>
+            {posts.map((item) => {
+                const title = item.data.title;
+                const slug = item.data.slug;
+                const date = item.data.date;
+                const content = item.content;
+                return (
+                    <main key={date}>
+                        <h1 data-cy="postIndexTitle">{title}</h1>
+                        <h3 data-cy="postIndexDate">{date}</h3>
+                        <div
+                            data-cy="postIndexBody"
+                            dangerouslySetInnerHTML={{ __html: md().render(content) }}
+                        />
+                    </main>
+                );
+            })}
         </div>
     );
-}
+};
 
-export async function getStaticProps() {
-    const files = fs.readdirSync('_posts');
-    const posts = files.map((fileName) => {
-        const slug = fileName.replace('.md', '');
-        const readFile = fs.readFileSync(`_posts/${fileName}`, 'utf-8');
-        const { data: frontmatter, content } = matter(readFile);
-        // I want a way to mark a post if it contains an unresolved todo item
-        // I don't like having to contain the entire return in both branches here,
-        // but I can't use state in this function.
-        if (content.includes('TODO')) {
-            const containsTodo = true;
-            return {
-                slug,
-                frontmatter,
-            };
-        } else {
-            const containsTodo = false;
-            return {
-                slug,
-                frontmatter,
-            };
-        }
+export async function getStaticProps(context) {
+    const URL = 'https://api.github.com/repos/samuelboland/Hyperfixations_Posts/contents/posts';
+
+    let headers = new Headers({
+        Accept: 'application/json',
+        'User-Agent': 'samuelboland',
     });
+
+    const apiResponse = await fetch(URL, {
+        method: 'GET',
+        headers: headers,
+    }).then((response) => response.json());
+
+    const urls = apiResponse.map((item) => item.download_url);
+
+    const articles = await Promise.all(
+        urls.map((url) => {
+            const markdown = fetch(url).then((response) => response.text());
+            return markdown;
+        }),
+    );
+    const data = articles.map((article) => {
+        const { data: frontmatter, content } = matter(article);
+        return { data: frontmatter, content };
+    });
+
     return {
-        props: {
-            posts,
-        },
+        props: { message: data },
     };
 }
+
+export default Test;

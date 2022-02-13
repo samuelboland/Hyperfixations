@@ -9,11 +9,15 @@ describe('Posts page', () => {
 
     it('Renders the page', () => {});
 
-    it('Contains post titles', () => {
+    it('Contains at least one post title', () => {
         cy.get('@postIndexTitle');
     });
 
-    it('Contains links to blog posts', () => {
-        cy.get('@postIndexLink').should('have.attr', 'href');
+    it('Contains at least one post date', () => {
+        cy.get('@postIndexDate');
+    });
+
+    it('Contains at least one post body', () => {
+        cy.get('@postIndexBody');
     });
 });
