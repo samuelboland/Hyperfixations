@@ -9,12 +9,12 @@ export default function Home() {
             <div>
                 <main>
                     <div className={styles.introduction}>
-                        <h2> Sam Boland </h2>
+                        <h2> What is this </h2>
                         <p>
-                            My name is Sam Boland. I currently work as a Sr. QA Engineer at
+                            Hello! My name is Sam. I currently work as a Sr. QA Engineer at
                             AppFolio, inc, located in Santa Barbara, CA. I am on a journey to learn
                             more about the technical details of web development. This site is my
-                            classroom and my playground.
+                            classroom, my playground, and my journal.
                         </p>
                         <p>
                             I intend to document the steps that I take to build this site in the
@@ -26,7 +26,6 @@ export default function Home() {
                             <ul>
                                 <li>Next.JS</li>
                                 <li>Vercel</li>
-                                <li>MongoDB Atlas</li>
                                 <li>CircleCI</li>
                             </ul>
                             This is not an exhaustive list, of course. A more comprehensive list can
