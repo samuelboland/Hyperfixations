@@ -20,14 +20,13 @@ export default function Home() {
                             I intend to document the steps that I take to build this site in the
                             Development Diary, located below.
                         </p>
+                        <p> This site is built with: </p>
+                        <ul>
+                            <li>Next.JS</li>
+                            <li>Vercel</li>
+                            <li>CircleCI</li>
+                        </ul>
                         <p>
-                            {' '}
-                            This site is built with:
-                            <ul>
-                                <li>Next.JS</li>
-                                <li>Vercel</li>
-                                <li>CircleCI</li>
-                            </ul>
                             This is not an exhaustive list, of course. A more comprehensive list can
                             be found at the site's repository, here:{' '}
                             <Link href="https://github.com/samuelboland/Hyperfixations">
