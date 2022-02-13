@@ -27,11 +27,13 @@ const Test = (props) => {
 };
 
 export async function getStaticProps(context) {
+    const GITHUB_API_TOKEN = process.env.GITHUB_API_TOKEN;
     const URL = 'https://api.github.com/repos/samuelboland/Hyperfixations_Posts/contents/posts';
 
     let headers = new Headers({
         Accept: 'application/json',
         'User-Agent': 'samuelboland',
+        Authorization: `token ${GITHUB_API_TOKEN}`,
     });
 
     const apiResponse = await fetch(URL, {
