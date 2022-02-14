@@ -1,5 +1,5 @@
 import md from 'markdown-it';
-import githubApi from '../../lib/githubApi';
+import * as githubApi from '../../lib/githubApi';
 
 const index = (props) => {
     const posts = props.message.sort((a, b) => b.date - a.date).reverse();
@@ -27,7 +27,7 @@ const index = (props) => {
 };
 
 export async function getStaticProps(context) {
-    const data = await githubApi();
+    const data = await githubApi.fetchAll();
     return {
         props: { message: data },
     };
