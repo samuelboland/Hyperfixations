@@ -1,19 +1,26 @@
 import md from 'markdown-it';
+import Link from 'next/link';
 import * as githubApi from '../../lib/githubApi';
+import matter from 'gray-matter';
 
 const index = (props) => {
-    const posts = props.message.sort((a, b) => b.date - a.date).reverse();
+    const orderPosts = (props) => [...props.data].sort((a, b) => b.date - a.date).reverse();
 
+    const orderedPosts = orderPosts(props);
     return (
         <div>
-            {posts.map((item) => {
-                const title = item.data.title;
-                const slug = item.data.slug;
-                const date = item.data.date;
+            {orderedPosts.map((item) => {
+                const title = item.frontmatter.title;
+                const date = item.frontmatter.date;
+                const name = item.name.slice(0, -3);
                 const content = item.content;
                 return (
                     <main key={date}>
-                        <h1 data-cy="postIndexTitle">{title}</h1>
+                        <Link href={'/posts/' + name}>
+                            <a>
+                                <h1 data-cy="postIndexTitle">{title}</h1>
+                            </a>
+                        </Link>
                         <h3 data-cy="postIndexDate">{date}</h3>
                         <div
                             data-cy="postIndexBody"
@@ -27,9 +34,11 @@ const index = (props) => {
 };
 
 export async function getStaticProps(context) {
+    // This returns an array of objects. Each object
+    // has the keys name, content, and frontmatter.
     const data = await githubApi.fetchAll();
     return {
-        props: { message: data },
+        props: { data: data },
     };
 }
 
