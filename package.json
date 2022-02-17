@@ -6,16 +6,7 @@
         "reporter": [
             "cobertura",
             "html"
-        ],
-        "include": [
-            "lib/**",
-            "pages/**"
-        ],
-        "exclude": [
-            "pages/_document.js",
-            "**/*.scss"
-        ],
-        "all": true
+        ]
     },
     "scripts": {
         "dev": "next dev",
