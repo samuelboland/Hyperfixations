@@ -5,10 +5,10 @@ const posts = (props) => {
     const post = props.data;
     return (
         <main>
-            <h1>{post.data.title}</h1>
-            <h2>{post.data.date}</h2>
+            <h1 data-cy="postShowTitle">{post.data.title}</h1>
+            <h2 data-cy="postShowDate">{post.data.date}</h2>
             <div
-                data-cy="postIndexBody"
+                data-cy="postShowBody"
                 dangerouslySetInnerHTML={{ __html: md().render(post.content) }}
             />
         </main>

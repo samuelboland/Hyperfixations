@@ -17,7 +17,7 @@ const index = (props) => {
                 return (
                     <main key={date}>
                         <Link href={'/posts/' + name}>
-                            <a>
+                            <a data-cy="postIndexLink">
                                 <h1 data-cy="postIndexTitle">{title}</h1>
                             </a>
                         </Link>
