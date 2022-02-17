@@ -1,4 +1,4 @@
-describe('Posts page', () => {
+describe('Post Index page', () => {
     before(() => {
         cy.visit('/posts');
     });
@@ -19,5 +19,9 @@ describe('Posts page', () => {
 
     it('Contains at least one post body', () => {
         cy.get('@postIndexBody');
+    });
+
+    it('Contains at least one working link to a post show page', () => {
+        cy.get('@postIndexLink').first().click();
     });
 });
