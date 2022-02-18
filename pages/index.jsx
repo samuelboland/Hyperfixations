@@ -11,9 +11,8 @@ export default function Home() {
                     <div className={styles.introduction}>
                         <h2> What is this </h2>
                         <p>
-                            Hello! My name is Sam. I currently work as a Sr. QA Engineer at
-                            AppFolio, inc, located in Santa Barbara, CA. I am on a journey to learn
-                            more about the technical details of web development. This site is my
+                            Hello! My name is Sam. I currently work as a Sr. QA Engineer. I am
+                            learning more about the development side of tech work. This site is my
                             classroom, my playground, and my journal.
                         </p>
                         <p>
@@ -25,6 +24,7 @@ export default function Home() {
                             <li>Next.JS</li>
                             <li>Vercel</li>
                             <li>CircleCI</li>
+                            <li>React</li>
                         </ul>
                         <p>
                             This is not an exhaustive list, of course. A more comprehensive list can
