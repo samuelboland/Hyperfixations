@@ -36,6 +36,7 @@ workflows:
             - cypress/install:
                 build: npm run build
             - cypress/run:
+                store_artifacts: true
                 executor: with-chrome
                 browser: chrome
                 requires: 
