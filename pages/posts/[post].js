@@ -1,5 +1,6 @@
 import * as githubApi from '../../lib/githubApi';
-import md from 'markdown-it';
+import ReactMarkdown from 'react-markdown';
+import { MarkdownComponents } from '../../lib/markdownRemoteImages';
 
 const posts = (props) => {
     const post = props.data;
@@ -7,10 +8,9 @@ const posts = (props) => {
         <main>
             <h1 data-cy="postShowTitle">{post.data.title}</h1>
             <h2 data-cy="postShowDate">{post.data.date}</h2>
-            <div
-                data-cy="postShowBody"
-                dangerouslySetInnerHTML={{ __html: md().render(post.content) }}
-            />
+            <ReactMarkdown data-cy="postShowBody" components={MarkdownComponents}>
+                {post.content}
+            </ReactMarkdown>
         </main>
     );
 };
