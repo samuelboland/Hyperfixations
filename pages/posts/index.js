@@ -1,12 +1,10 @@
-import md from 'markdown-it';
 import Link from 'next/link';
 import * as githubApi from '../../lib/githubApi';
-import matter from 'gray-matter';
 
 const index = (props) => {
     const orderPosts = (props) => [...props.data].sort((a, b) => b.date - a.date).reverse();
-
     const orderedPosts = orderPosts(props);
+
     return (
         <div>
             {orderedPosts.map((item) => {
@@ -22,10 +20,6 @@ const index = (props) => {
                             </a>
                         </Link>
                         <h3 data-cy="postIndexDate">{date}</h3>
-                        <div
-                            data-cy="postIndexBody"
-                            dangerouslySetInnerHTML={{ __html: md().render(content) }}
-                        />
                     </main>
                 );
             })}
