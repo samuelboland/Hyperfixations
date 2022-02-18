@@ -17,8 +17,11 @@ describe('Post Show page', () => {
         cy.get('@postShowDate');
     });
 
-    it('Contains a post body', () => {
-        cy.get('@postShowBody');
+    // ReactMarkdown converts md to normal html. Any tags that I apply to
+    // the ReactMarkdown component are not preserved. This is a proxy. I do not
+    // use any <p>s outside of the markdown component. If one is present, it should
+    // mean that the post is there.
+    it('Contains at least one paragraph element', () => {
+        cy.get('p');
     });
-
 });
