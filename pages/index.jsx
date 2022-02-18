@@ -2,6 +2,8 @@ import Link from 'next/link';
 import React from 'react';
 import AnimationWrapper from '../components/AnimationWrapper';
 import styles from './index.module.scss';
+import { NextSeo } from 'next-seo';
+
 
 export default function Home() {
     return (
