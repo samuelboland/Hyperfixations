@@ -46,7 +46,6 @@ const index = (props) => {
                     const title = item.frontmatter.title;
                     const date = dateFormatter(item.frontmatter.date);
                     const name = item.name.slice(0, -3);
-                    const content = item.content;
                     return (
                         <main key={date}>
                             <Link href={'/posts/' + name}>
