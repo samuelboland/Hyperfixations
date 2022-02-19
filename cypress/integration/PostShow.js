@@ -1,6 +1,6 @@
 describe('Post Show page', () => {
     before(() => {
-        cy.visit('/posts/2022-02-13-move-github-fetching-logic-lib-file');
+        cy.visit('/posts/2022-02-09-switching-to-markdown-files');
     });
 
     beforeEach(() => {
@@ -23,5 +23,9 @@ describe('Post Show page', () => {
     // mean that the post is there.
     it('Contains at least one paragraph element', () => {
         cy.get('p');
+    });
+
+    it('Contains at least one image', () => {
+        cy.get('img');
     });
 });
