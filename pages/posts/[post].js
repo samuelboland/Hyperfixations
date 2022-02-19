@@ -1,6 +1,7 @@
 import * as githubApi from '../../lib/githubApi';
 import ReactMarkdown from 'react-markdown';
 import { MarkdownComponents } from '../../lib/markdownRemoteImages';
+import SyntaxHighlight from '../../lib/syntaxHighlight';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 
@@ -30,7 +31,10 @@ const posts = (props) => {
             <main>
                 <h1 data-cy="postShowTitle">{post.data.title}</h1>
                 <h2 data-cy="postShowDate">{post.data.date}</h2>
-                <ReactMarkdown data-cy="postShowBody" components={MarkdownComponents}>
+                <ReactMarkdown
+                    data-cy="postShowBody"
+                    components={(MarkdownComponents, SyntaxHighlight)}
+                >
                     {post.content}
                 </ReactMarkdown>
             </main>
