@@ -1,4 +1,4 @@
-describe('Navigation', () => {
+describe('Homepage', () => {
     before(() => {
         cy.visit('/');
     });
