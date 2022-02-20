@@ -1,17 +1,62 @@
 # This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
 version: 2.1
 
-# Orbs are reusable packages of CircleCI configuration that you may share across projects, enabling you to create encapsulated, parameterized commands, jobs, and executors that can be used across multiple projects.
-# See: https://circleci.com/docs/2.0/orb-intro/
 orbs:
     node: circleci/node@5.0.0
     codecov: codecov/codecov@3.2.2
     cypress: samuelboland/cypress@0.0.12
 
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Jobs ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+
+jobs:
+    Build_and_run_cypress:
+        environment:
+            CYPRESS_CACHE_FOLDER: ~/.cache/Cypress
+
+        executor: with-chrome
+        steps:
+            - checkout
+            - restore_cache:
+                  keys:
+                      - cache-v1-{{ checksum "package.json"}}
+            - run:
+                  name: 'Install'
+                  command: npm install
+                  working_directory: ''
+            - run:
+                  name: 'Verify Cypress'
+                  command: npx cypress verify
+                  working_directory: ''
+            - run:
+                  name: 'Build'
+                  command: 'npm run build'
+                  working_directory: ''
+            - save_cache:
+                  key: cache-v1-{{ checksum "package.json"}}
+                  paths:
+                      - ~/.npm
+                      - ~/.cache
+                      - .next/cache
+            - run:
+                  name: 'Start'
+                  command: 'npm run start'
+                  background: true
+                  working_directory: ''
+            - run:
+                  name: Wait-on 'http-get://localhost:3000'
+                  command: npx wait-on 'http-get://localhost:3000'
+            - run: 
+                  name: Run cypress tests
+                  no_output_timeout: 10m
+                  command: npx cypress run --browser chrome
+                  working_directory: ''
+            - store_artifacts: 
+                  path: cypress/videos
+            - store_artifacts:
+                path: cypress/screenshots
+            - store_artifacts:
+                path: coverage
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Executors for Cypress ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
 
@@ -33,20 +78,6 @@ workflows:
                       - store_artifacts:
                             path: coverage
                       - codecov/upload
-            - cypress/install:
-                  build: npm run build
-                  cache-key: cache-{{ checksum "package.json"}}
-            - cypress/run:
-                  cache-key: cache-{{ checksum "package.json"}}
-                  store_artifacts: true
-                  executor: with-chrome
-                  browser: chrome
-                  requires:
-                      - cypress/install
-                  attach-workspace: true
-                  start: npm run start
-                  wait-on: 'http-get://localhost:3000'
-                  post-steps:
-                      - store_artifacts:
-                            path: coverage
+            - Build_and_run_cypress:
+                  post-steps: 
                       - codecov/upload
