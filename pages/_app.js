@@ -1,6 +1,5 @@
 import React from 'react';
-import 'marx-css';
-import '../styles/globals.scss';
+import '../styles/globals.css';
 import { AnimatePresence } from 'framer-motion';
 import Layout from '../components/layout';
 import { NextSeo } from 'next-seo';

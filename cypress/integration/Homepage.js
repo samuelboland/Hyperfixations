@@ -13,10 +13,6 @@ describe('Homepage', () => {
     // the app didn't load at all. This
     it('Loads the application', () => {});
 
-    it('Has an animation wrapper', () => {
-        cy.get('@animationWrapper');
-    });
-
     it('Contains the link to the blog page', () => {
         cy.get('@indexLinkForBlog');
     });
