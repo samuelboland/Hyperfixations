@@ -4,7 +4,6 @@ import AnimationWrapper from '../components/AnimationWrapper';
 import styles from './index.module.scss';
 import { NextSeo } from 'next-seo';
 
-
 export default function Home() {
     return (
         <AnimationWrapper>
@@ -28,6 +27,7 @@ export default function Home() {
                             <li>CircleCI</li>
                             <li>React</li>
                         </ul>
+                        <br />
                         <p>
                             This is not an exhaustive list, of course. A more comprehensive list can
                             be found at the site's repository, here:{' '}
