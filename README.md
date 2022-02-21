@@ -22,23 +22,26 @@ Note that code coverage reports are automatically generated and uploaded via Cir
 
 ## Tech Stack
 
--   Framework: [NextJS](https://nextjs.org/)
--   Hosting: [Vercel](https://vercel.com)
+- Framework: [NextJS](https://nextjs.org/)
+- Hosting: [Vercel](https://vercel.com)
 
 ## Testing
 
--   [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
--   [Jest] (https://jestjs.io)
--   [Cypress] (https://www.cypress.io)
--   [Istanbul](https://istanbul.js.org)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- [Jest] (<https://jestjs.io>)
+- [Cypress] (<https://www.cypress.io>)
+- [Istanbul](https://istanbul.js.org)
 
 ## Continuous Integration
 
--   [CircleCI](https://circleci.com/)
+- [CircleCI](https://circleci.com/)
+
+## Design
+
+- [Tailwind CSS](tailwindcss.com)
+- [DaisyUI](https://daisyui.com/)
 
 ## Utilities and other things
 
--   [animate.css](https://animate.style/) - Easy Small CSS animations
--   [Marx classless css](https://mblode.github.io/marx/) - Basic nice looking CSS as a baseline to iterate on
--   [React Icons](https://react-icons.github.io/react-icons/) - Easy, React-ish icons from various icon providers
--   [Sematext Logs](https://sematext.com/) - Log aggregator and analysis platform that easily integrates with Vercel
+- [Sematext Logs](https://sematext.com/) - Log aggregator and analysis platform that easily integrates with Vercel
+- [Codecov](https://codecov.com/)
