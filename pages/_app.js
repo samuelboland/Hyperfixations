@@ -3,6 +3,8 @@ import '../styles/globals.css';
 import { AnimatePresence } from 'framer-motion';
 import Layout from '../components/layout';
 import { NextSeo } from 'next-seo';
+import { ThemeProvider } from 'next-themes';
+import { useTheme } from 'next-themes';
 
 export default function App({ Component, pageProps: { session, ...pageProps }, router }) {
     return (
@@ -23,15 +25,17 @@ export default function App({ Component, pageProps: { session, ...pageProps }, r
                     cardType: 'summary_large_image',
                 }}
             />
-            <Layout>
-                <AnimatePresence
-                    exitBeforeEnter
-                    initial="start"
-                    onExitComplete={() => window.scrollTo(0, 0)}
-                >
-                    <Component {...pageProps} key={router.pathname} />
-                </AnimatePresence>
-            </Layout>
+            <ThemeProvider>
+                <Layout>
+                    <AnimatePresence
+                        exitBeforeEnter
+                        initial="start"
+                        onExitComplete={() => window.scrollTo(0, 0)}
+                    >
+                        <Component {...pageProps} key={router.pathname} />
+                    </AnimatePresence>
+                </Layout>
+            </ThemeProvider>
         </>
     );
 }
