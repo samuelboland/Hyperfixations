@@ -5,3 +5,7 @@ Disallow: /api
 # Allow all crawlers
 User-agent: *
 Allow: /
+
+# ALlow all crawlers for posts
+User-agent: *
+Allow: /posts
