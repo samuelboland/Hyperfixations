@@ -3,3 +3,10 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Fira+Mono&family=Montserrat:wght@100;400;900&family=Open+Sans:wght@400;700&display=swap');
+
+@layer base {
+    img {
+        border: solid black;
+        border-radius: 2%;
+    }
+}
