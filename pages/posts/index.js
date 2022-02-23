@@ -34,7 +34,7 @@ const index = (props) => {
                     cardType: 'summary_large_image',
                 }}
             />
-            <div>
+            <div className="container prose m-auto pt-6">
                 <main>
                     <h1>Development Log</h1>
                     <p>
