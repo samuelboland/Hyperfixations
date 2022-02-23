@@ -7,7 +7,7 @@ const ThemeChanger = () => {
     return (
         <>
             <div class="dropdown-left dropdown">
-                <label tabIndex="0" class="btn btn-ghost rounded-btn" data-cy="headerDropdownMenu">
+                <label tabIndex="0" class="btn btn-ghost rounded-btn" data-cy="themeChanger">
                     <FaPaintBrush />
                 </label>
                 <ul
