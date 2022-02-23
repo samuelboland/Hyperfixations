@@ -4,23 +4,23 @@ import ThemeChanger from './ThemeChanger';
 
 const Header = () => {
     return (
-        <div class="navbar bg-base-300">
-            <div class="flex-1">
+        <div className="navbar bg-base-300">
+            <div className="flex-1">
                 <Link href="/">
-                    <a data-cy="headerLinkHome" class="btn btn-ghost text-xl normal-case">
+                    <a data-cy="headerLinkHome" className="btn btn-ghost text-xl normal-case">
                         Hyperfixations.io
                     </a>
                 </Link>
             </div>
             <ThemeChanger />
-            <div class="divider divider-horizontal"></div>
-            <div class="dropdown-left dropdown">
-                <label tabIndex="0" class="btn btn-ghost rounded-btn" data-cy="headerDropdownMenu">
+            <div className="divider divider-horizontal"></div>
+            <div className="dropdown-left dropdown">
+                <label tabIndex="0" className="btn btn-ghost rounded-btn" data-cy="headerDropdownMenu">
                     <FaBars size={24} />
                 </label>
                 <ul
                     tabIndex="0"
-                    class="dropdown-content menu rounded-box mt-4 w-52 bg-base-100 p-2 shadow"
+                    className="dropdown-content menu rounded-box mt-4 w-52 bg-base-100 p-2 shadow"
                 >
                     <li>
                         <Link href="/">
