@@ -4,7 +4,6 @@ import { AnimatePresence } from 'framer-motion';
 import Layout from '../components/layout';
 import { NextSeo } from 'next-seo';
 import { ThemeProvider } from 'next-themes';
-import { useTheme } from 'next-themes';
 
 export default function App({ Component, pageProps: { session, ...pageProps }, router }) {
     return (
