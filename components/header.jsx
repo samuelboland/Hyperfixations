@@ -1,5 +1,6 @@
 import { FaBars } from 'react-icons/fa';
 import Link from 'next/link';
+import ThemeChanger from './ThemeChanger';
 
 const Header = () => {
     return (
@@ -11,6 +12,8 @@ const Header = () => {
                     </a>
                 </Link>
             </div>
+            <ThemeChanger />
+            <div class="divider divider-horizontal"></div>
             <div class="dropdown-left dropdown">
                 <label tabIndex="0" class="btn btn-ghost rounded-btn" data-cy="headerDropdownMenu">
                     <FaBars size={24} />
