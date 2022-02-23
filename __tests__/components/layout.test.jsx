@@ -10,7 +10,11 @@ describe('Layout Component', () => {
         const textToTest = 'This is a list item inside of a div';
 
         const TestChild = () => {
-            return <li> {textToTest} </li>;
+            return (
+                <div>
+                    <li>{textToTest} </li>
+                </div>
+            );
         };
 
         render(
@@ -19,7 +23,7 @@ describe('Layout Component', () => {
             </Layout>,
         );
 
-        const text = screen.getByRole('listitem', textToTest);
+        const text = screen.getByText(textToTest);
 
         expect(text).toHaveTextContent(textToTest);
     });

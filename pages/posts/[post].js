@@ -29,7 +29,7 @@ const posts = (props) => {
                 }}
             />
             <section>
-                <div class="container mx-auto px-5 py-24">
+                <div className="container mx-auto px-5 py-24">
                     <article className="prose mx-auto md:prose-lg lg:prose-xl">
                         <h1 data-cy="postShowTitle">{post.data.title}</h1>
                         <h2 data-cy="postShowDate">{post.data.date}</h2>
