@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <footer
             data-cy="footer"
-            class="footer fixed inset-x-0 bottom-0 items-center bg-neutral p-4 text-neutral-content"
+            class="footer fixed inset-x-0 bottom-0 items-center bg-base-300 p-4 text-base-content"
         >
             <div class="grid-flow-col items-center">
                 <h1>Hyperfixations |</h1>
