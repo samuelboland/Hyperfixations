@@ -28,16 +28,20 @@ const posts = (props) => {
                     cardType: 'summary_large_image',
                 }}
             />
-            <main>
-                <h1 data-cy="postShowTitle">{post.data.title}</h1>
-                <h2 data-cy="postShowDate">{post.data.date}</h2>
-                <ReactMarkdown
-                    data-cy="postShowBody"
-                    components={(MarkdownComponents, SyntaxHighlight)}
-                >
-                    {post.content}
-                </ReactMarkdown>
-            </main>
+            <section>
+                <div className="container mx-auto px-5 py-24">
+                    <article className="prose mx-auto md:prose-lg lg:prose-xl">
+                        <h1 data-cy="postShowTitle">{post.data.title}</h1>
+                        <h2 data-cy="postShowDate">{post.data.date}</h2>
+                        <ReactMarkdown
+                            data-cy="postShowBody"
+                            components={(MarkdownComponents, SyntaxHighlight)}
+                        >
+                            {post.content}
+                        </ReactMarkdown>
+                    </article>
+                </div>
+            </section>
         </>
     );
 };
