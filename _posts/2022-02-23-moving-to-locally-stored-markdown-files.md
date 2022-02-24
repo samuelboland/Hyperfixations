@@ -77,6 +77,8 @@ export async function getStaticProps() {
 }
 ```
 
+I plan to separate this out into a separate library soon, so that I can reuse it for multiple subfolders within the `_posts` directory.
+
 We now need to import `fs` and `matter`, as well.
 
 ```js
@@ -84,8 +86,89 @@ import fs from 'fs';
 import matter from 'gray-matter';
 ```
 
-You may notice that this returns posts in a different format than we used before. We return the `slug`, `frontmatter`, and `content` objects, all within `props`, as is required by `getStaticProps`. This also necessitated a few changes to how information is passed around the file. It became more simple in some ways. 
+You may notice that this returns posts in a different format than we used before. We return the `slug`, `frontmatter`, and `content` objects, all within `props`, as is required by `getStaticProps`. This also necessitated a few changes to how information is passed around the file. It became more simple in some ways.
 
-You might also notice that I'm returning `content` but not using it. In my other application, I have some flags in the text that I use to supply data to the frontend. For example, if the text contains `TODO`, I put a little flag on the post. I may do that again here.
+My new `PostsComponent` looks like this:
 
-I plan to separate this out into a separate library soon, so that I can reuse it for multiple subfolders within the `_posts` directory.
+```js
+ const PostComponent = ({ slug, frontmatter }) => {
+     const FormatDate = ({ date }) => {
+         return moment(date).format('dddd, YYYY-MM-DD');
+     };
+     return (
+         <div key={frontmatter.date} className="container mx-auto px-5 py-5">
+             <Link href={`/posts/${slug}`}>
+                 <a data-cy="postIndexLink">
+                     <h2
+                         data-cy="postIndexTitle"
+                         className="title-font mb-4 text-xl font-medium text-gray-900 sm:text-2xl"
+                    >
+                        {frontmatter.title}
+                    </h2>
+                </a>
+            </Link>
+            <h3 data-cy="postIndexDate">
+                <FormatDate date={frontmatter.date} />
+            </h3>
+        </div>
+    );
+};
+```
+
+One thing that I want to point out is the `{key}`. Remember, in React, if you do something like a `.map`, or a `.forEach`, or some sort of loop, or anything that involves iteratively rendering multiple copies of the same component with different data, React wants you to add a `{key}` to the topmost returned tag. This lets it keep track of which component is which. I use the `{frontmatter.date}` for this, because this contains the datetime down to the thousandth of a second. While this is not *guaranteed* to be unique, it will be for my purposes.
+
+### Changing load method from github API to filesystem: Posts show page
+
+This requires changes to both `getStaticProps` and `getStaticPaths`. As a refresher, both of these methods are special Next.js features that allow it to pre-render all possible pages at build time, rather than when a user opens a page.
+
+`getStaticProps`: In this function, you need to define some way to get the information that you want for each page. You then need to `return` it, inside of an object called `props`. Your main page can then use this as input.
+
+`getStaticPaths`: Here, you must define a way to enumerate all pages that Next needs to pre-render. In our case, this will be a list of all files in my `_posts` directory. You then `return` it inside of an object named `paths`.
+
+You can see a previous post about how I built these to read from the Github API. It involved separating out a lot of logic into a `lib/githubApi.js`  file, which I then just called from my page.
+
+My new method will put all of the logic in the page itself. I will likely pull this out and abstract it a bit later on, but for now, I just want to replicate how it currently works. Here's what it looks like:
+
+```js
+//getStaticPaths
+export async function getStaticPaths() {
+    const realSlug = (fileName) => {
+        let extension = path.extname(fileName);
+        return path.basename(fileName, extension);
+    };
+    const files = fs.readdirSync('_posts/');
+    const paths = files.map((fileName) => ({
+        params: {
+            post: realSlug(fileName),
+        },
+    }));
+    return {
+        paths,
+        fallback: false,
+    };
+}
+```
+
+```js
+//getStaticProps
+export async function getStaticProps({ params: { post } }) {
+    const fileName = glob.sync(`_posts/${post}.*`);
+    const file = fs.readFileSync(fileName[0], 'utf-8');
+    const { data: frontmatter, content } = matter(file);
+    return {
+        props: {
+            frontmatter,
+            content,
+        },
+    };
+}
+
+```
+
+Similar to the above section, this also required some minor changes to the page. I now pass `frontmatter` and `content` in `getStaticProps`, rather than passing it all together as a single `post` and then deconstructing it later. I also had to adjust the names of some variables that I used. Otherwise, it was a fairly painless change.
+
+All tests pass, and manual testing shows me that this is actually much quicker, just as I had hoped.
+
+## Conclusion
+
+You can view all changes in the PR associated with this post. Currently, those are in the frontmatter so you can't access them, so you will need to go to the repository directly and find it. But I will fix that soon enough. :)
