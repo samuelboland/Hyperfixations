@@ -1,19 +1,21 @@
-import * as githubApi from '../../lib/githubApi';
 import ReactMarkdown from 'react-markdown';
 import { MarkdownComponents } from '../../lib/markdownRemoteImages';
 import SyntaxHighlight from '../../lib/syntaxHighlight';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
+import fs from 'fs';
+import matter from 'gray-matter';
+import path from 'path';
+import glob from 'glob';
 
-const posts = (props) => {
+const posts = ({ frontmatter, content }) => {
     const router = useRouter();
     const canonicalUrl = 'http://hyperfixations.io' + router.asPath;
 
-    const post = props.data;
     return (
         <>
             <NextSeo
-                title={props.data.data.title}
+                title={frontmatter.title}
                 description="Approximate knowledge of many things"
                 canonical={canonicalUrl}
                 openGraph={{
@@ -31,13 +33,13 @@ const posts = (props) => {
             <section>
                 <div className="container mx-auto px-5 py-24">
                     <article className="prose mx-auto md:prose-lg lg:prose-xl">
-                        <h1 data-cy="postShowTitle">{post.data.title}</h1>
-                        <h2 data-cy="postShowDate">{post.data.date}</h2>
+                        <h1 data-cy="postShowTitle">{frontmatter.title}</h1>
+                        <h2 data-cy="postShowDate">{frontmatter.date}</h2>
                         <ReactMarkdown
                             data-cy="postShowBody"
                             components={(MarkdownComponents, SyntaxHighlight)}
                         >
-                            {post.content}
+                            {content}
                         </ReactMarkdown>
                     </article>
                 </div>
@@ -46,12 +48,17 @@ const posts = (props) => {
     );
 };
 
+export default posts;
+
 export async function getStaticPaths() {
-    const listOfPaths = await githubApi.fetchAllPostNames();
-    const paths = listOfPaths.map((path) => ({
+    const realSlug = (fileName) => {
+        let extension = path.extname(fileName);
+        return path.basename(fileName, extension);
+    };
+    const files = fs.readdirSync('_posts/');
+    const paths = files.map((fileName) => ({
         params: {
-            post: path,
-            fallback: false,
+            post: realSlug(fileName),
         },
     }));
     return {
@@ -60,11 +67,14 @@ export async function getStaticPaths() {
     };
 }
 
-export async function getStaticProps({ params }) {
-    const data = await githubApi.fetchOne(params.post);
+export async function getStaticProps({ params: { post } }) {
+    const fileName = glob.sync(`_posts/${post}.*`);
+    const file = fs.readFileSync(fileName[0], 'utf-8');
+    const { data: frontmatter, content } = matter(file);
     return {
-        props: { data },
+        props: {
+            frontmatter,
+            content,
+        },
     };
 }
-
-export default posts;
