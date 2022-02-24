@@ -28,8 +28,8 @@ Note that code coverage reports are automatically generated and uploaded via Cir
 ## Testing
 
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
-- [Jest] (<https://jestjs.io>)
-- [Cypress] (<https://www.cypress.io>)
+- [Jest](<https://jestjs.io>)
+- [Cypress](<https://www.cypress.io>)
 - [Istanbul](https://istanbul.js.org)
 
 ## Continuous Integration
