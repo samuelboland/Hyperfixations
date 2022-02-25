@@ -17,9 +17,6 @@ const ThemeChanger = () => {
                     <li className="bg-base btn" onClick={() => setTheme('light')}>
                         Light
                     </li>
-                    <li className="bg-base btn" onClick={() => setTheme('dark')}>
-                        Dark
-                    </li>
                     <li className="bg-base btn" onClick={() => setTheme('cupcake')}>
                         Cupcake
                     </li>
