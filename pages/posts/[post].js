@@ -7,6 +7,7 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
 import glob from 'glob';
+import moment from 'moment';
 
 const posts = ({ frontmatter, content }) => {
     const router = useRouter();
@@ -34,7 +35,9 @@ const posts = ({ frontmatter, content }) => {
                 <div className="container mx-auto px-5 py-24">
                     <article className="prose mx-auto md:prose-lg lg:prose-xl">
                         <h1 data-cy="postShowTitle">{frontmatter.title}</h1>
-                        <h2 data-cy="postShowDate">{frontmatter.date}</h2>
+                        <h2 data-cy="postShowDate">
+                            {moment(frontmatter.date).format('dddd, YYYY-MM-DD')}
+                        </h2>
                         <ReactMarkdown
                             data-cy="postShowBody"
                             components={(MarkdownComponents, SyntaxHighlight)}
