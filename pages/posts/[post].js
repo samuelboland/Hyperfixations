@@ -8,6 +8,8 @@ import matter from 'gray-matter';
 import path from 'path';
 import glob from 'glob';
 import moment from 'moment';
+import remarkToc from 'remark-toc';
+import rehypeSlug from 'rehype-slug';
 
 const posts = ({ frontmatter, content }) => {
     const router = useRouter();
@@ -41,6 +43,8 @@ const posts = ({ frontmatter, content }) => {
                         <ReactMarkdown
                             data-cy="postShowBody"
                             components={(MarkdownComponents, SyntaxHighlight)}
+                            remarkPlugins={[remarkToc]}
+                            rehypePlugins={[rehypeSlug]}
                         >
                             {content}
                         </ReactMarkdown>
