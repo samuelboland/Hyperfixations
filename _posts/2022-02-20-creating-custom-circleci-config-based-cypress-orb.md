@@ -4,7 +4,6 @@ slug: creating-custom-circleci-config-based-cypress-orb
 description: 'I redid my circleci config by using parts from the cypress orb. I reduced my build time from 2m45s to 1m 13s, a 55.7% reduction. More than I thought I''d get.'
 author: Sam Boland
 date: '2022-02-20T20:17:21.716Z'
-lastmod: '2022-02-20T21:50:46.776Z'
 tags: []
 pullRequest: 'https://github.com/samuelboland/Hyperfixations/pull/46'
 ---
