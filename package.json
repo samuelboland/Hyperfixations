@@ -19,7 +19,8 @@
         "test:coverage": "jest --coverage",
         "cov": "open -a 'Google Chrome' coverage/index.html ",
         "cypress:open": "cypress open",
-        "cypress:ci": "cypress run --quiet"
+        "cypress:ci": "cypress run --quiet",
+        "postbuild": "node ./scripts/generate-sitemap.mjs"
     },
     "dependencies": {
         "@cypress/react": "^5.12.2",

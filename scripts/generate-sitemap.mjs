@@ -1,11 +1,6 @@
-import React from 'react';
 import * as fs from 'fs';
 
 const Sitemap = () => {
-    return null;
-};
-
-export const getServerSideProps = async ({ res }) => {
     const BASE_URL = 'https://hyperfixations.io'; //This is where you will define your base url. You can also use the default dev url http://localhost:3000
     const staticPaths = fs
         .readdirSync('pages')
@@ -39,13 +34,7 @@ export const getServerSideProps = async ({ res }) => {
     </urlset>
   `;
 
-    res.setHeader('Content-Type', 'text/xml');
-    res.write(sitemap);
-    res.end();
-
-    return {
-        props: {},
-    };
+    fs.writeFileSync('public/sitemap.xml', sitemap);
 };
 
-export default Sitemap;
+Sitemap();
