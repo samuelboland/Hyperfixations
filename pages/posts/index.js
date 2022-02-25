@@ -1,36 +1,30 @@
 import Link from 'next/link';
-import * as githubApi from '../../lib/githubApi';
 import moment from 'moment';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
+import fs from 'fs';
+import matter from 'gray-matter';
 
-const index = (props) => {
-    const orderPosts = (props) => [...props.data].sort((a, b) => b.date - a.date).reverse();
-    const orderedPosts = orderPosts(props);
-
-    const dateFormatter = (date) => {
-        let d = new Date(date);
-        let formatted = moment(d).format('YYYY-MM-DD');
-        return formatted;
-    };
-
-    const PostComponent = ({ post }) => {
-        const name = post.name.slice(0, -3);
-        const title = post.frontmatter.title;
-        const date = dateFormatter(post.frontmatter.date);
+const index = ({ posts }) => {
+    const PostComponent = ({ slug, frontmatter }) => {
+        const FormatDate = ({ date }) => {
+            return moment(date).format('dddd, YYYY-MM-DD');
+        };
         return (
-            <div key={date} className="container mx-auto px-5 py-5">
-                <Link href={'/posts/' + name}>
+            <div key={frontmatter.date} className="container mx-auto px-5 py-5">
+                <Link href={`/posts/${slug}`}>
                     <a data-cy="postIndexLink">
                         <h2
                             data-cy="postIndexTitle"
                             className="title-font mb-4 text-xl font-medium text-gray-900 sm:text-2xl"
                         >
-                            {title}
+                            {frontmatter.title}
                         </h2>
                     </a>
                 </Link>
-                <h3 data-cy="postIndexDate">{date}</h3>
+                <h3 data-cy="postIndexDate">
+                    <FormatDate date={frontmatter.date} />
+                </h3>
             </div>
         );
     };
@@ -68,21 +62,32 @@ const index = (props) => {
                             I hope you find something of use in them anyways.
                         </p>
                     </div>
-                    {orderedPosts.map((item) => {
-                        return <PostComponent post={item} />;
-                    })}
+                    {posts.map(({ slug, frontmatter }) => (
+                        <PostComponent slug={slug} frontmatter={frontmatter} />
+                    ))}
                 </div>
             </div>
         </>
     );
 };
 
-export async function getStaticProps(context) {
-    // This returns an array of objects. Each object
-    // has the keys name, content, and frontmatter.
-    const data = await githubApi.fetchAll();
+export async function getStaticProps() {
+    // We reverse here so that we get the newest posts at the top of the resulting index page.
+    // I could reverse it somewhere else, but this is as good of a location as any.
+    const files = fs.readdirSync('_posts/').reverse();
+    const posts = files.map((fileName) => {
+        const slug = fileName.replace('.md', '');
+        const readFile = fs.readFileSync(`_posts/${fileName}`, 'utf-8');
+        const { data: frontmatter } = matter(readFile);
+        return {
+            slug,
+            frontmatter,
+        };
+    });
     return {
-        props: { data: data },
+        props: {
+            posts,
+        },
     };
 }
 
