@@ -39,3 +39,29 @@ The [DaisyUI Docs on Color](https://daisyui.com/docs/colors/) explain how the co
 - Accent: Another one like the above, but for things that need to really stand out. Use sparingly. Perhaps an "abort" button.
 - Neutral: Perhaps a back button, or log out, or cancel order. Something that needs to be seen, but you don't want to highlight.
 - Base-100: The main background color of your site.
+
+### Creating a new index page
+
+I am, unfortunately, writing this after the fact. I spent a lot of time playing around with different designs. I'm getting close.
+
+Here's what I have currently:
+
+![New home page with a nice CSS gradient](/Screen%20Shot%202022-02-26%20at%202.50.13%20PM.png)
+
+I think it looks rather nice. But there's a problem: It looks like garbage on mobile:
+
+![Poor formatting on mobile](/Screen%20Shot%202022-02-26%20at%202.51.31%20PM.png)
+
+I only discovered this *after* I had already pushed it to master.
+
+### Fixing the index page on mobile
+
+I am now writing in real-time again. I wonder what's going wrong here...
+
+Ah, it was the size of my header text. I need to add some breakpoint changes. I'll define the "standard," aka mobile, as `text-xl`, and then add one each for small, medium, and large viewports.
+
+[Reading the tailwind docs](https://tailwindcss.com/docs/responsive-design#targeting-a-single-breakpoint), I found out that we don't use a size indicator like `sm` to target mobile devices. `sm` means "small breakpoint *and up*". The unprefixed version is what we need.
+
+It looks much better now!
+
+![Image showing that there is no more weird white space at the bottom of the mobile view](../public/Screen%20Shot%202022-02-26%20at%203.37.00%20PM.png)
