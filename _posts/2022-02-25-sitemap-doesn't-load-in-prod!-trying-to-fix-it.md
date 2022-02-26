@@ -26,7 +26,7 @@ I mean, this seems like the simplest way, right? Let's change it.
 
 This returns an error:
 
-![Screenshot showing an error about how set Header is undefined](../public/Screen%20Shot%202022-02-25%20at%201.15.24%20PM.png)
+![Screenshot showing an error about how set Header is undefined](/Screen%20Shot%202022-02-25%20at%201.15.24%20PM.png)
 
 ### Attempt 2: using `getInitialProps`
 
@@ -34,7 +34,7 @@ This returns an error:
 
 When I change my method to use `getInitialProps`, I get an error about how it can't resolve the `fs` module.
 
-![Image showing an error about how the site cannot resolve the `fs` module](../public/Screen%20Shot%202022-02-25%20at%201.27.13%20PM.png)
+![Image showing an error about how the site cannot resolve the `fs` module](/Screen%20Shot%202022-02-25%20at%201.27.13%20PM.png)
 
 A quick google gives me a [possible answer.](https://stackoverflow.com/questions/65442366/cant-use-fs-in-getinitialprops)
 

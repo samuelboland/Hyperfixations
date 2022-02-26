@@ -58,7 +58,7 @@ Then, adjust the `ReactMarkdown` component to include the plugins:
 
 And that's that.
 
-![Image showing a table of contents under a previous post](../public/Screen%20Shot%202022-02-24%20at%206.09.54%20PM.png)
+![Image showing a table of contents under a previous post](/Screen%20Shot%202022-02-24%20at%206.09.54%20PM.png)
 
 ### Formatting Requirements
 
