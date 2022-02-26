@@ -20,6 +20,12 @@ const ThemeChanger = () => {
                     <li className="bg-base btn" onClick={() => setTheme('cupcake')}>
                         Cupcake
                     </li>
+                    <li className="bg-base btn" onClick={() => setTheme('ysayle')}>
+                        Ysayle
+                    </li>
+                    <li className="bg-base btn" onClick={() => setTheme('cmyk')}>
+                        CMYK
+                    </li>
                 </ul>
             </div>
         </>
