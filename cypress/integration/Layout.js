@@ -1,6 +1,6 @@
 describe('Header Tests', () => {
     beforeEach(() => {
-        cy.visit('/');
+        cy.visit('/posts');
 
         cy.asAll();
     });
@@ -21,8 +21,12 @@ describe('Header Tests', () => {
 
 describe('Footer Tests', () => {
     beforeEach(() => {
-        cy.visit('/');
+        cy.visit('/posts');
         cy.asAll();
+    });
+
+    it('Shows the footer', () => {
+        cy.get('footer').should('exist');
     });
 
     it('Has a link to Twitter in the footer', () => {

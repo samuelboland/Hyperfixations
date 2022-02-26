@@ -4,7 +4,7 @@ import ThemeChanger from './ThemeChanger';
 
 const Header = () => {
     return (
-        <div className="navbar bg-base-300">
+        <div className="navbar bg-base-300" data-cy="header">
             <div className="flex-1">
                 <Link href="/">
                     <a data-cy="headerLinkHome" className="btn btn-ghost text-xl normal-case">
@@ -15,7 +15,11 @@ const Header = () => {
             <ThemeChanger />
             <div className="divider divider-horizontal"></div>
             <div className="dropdown-left dropdown">
-                <label tabIndex="0" className="btn btn-ghost rounded-btn" data-cy="headerDropdownMenu">
+                <label
+                    tabIndex="0"
+                    className="btn btn-ghost rounded-btn"
+                    data-cy="headerDropdownMenu"
+                >
                     <FaBars size={24} />
                 </label>
                 <ul

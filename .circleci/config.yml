@@ -70,14 +70,6 @@ executors:
 workflows:
     Application Test:
         jobs:
-            - node/test:
-                  pkg-manager: npm
-                  test-results-for: other
-                  run-command: test:ci
-                  post-steps:
-                      - store_artifacts:
-                            path: coverage
-                      - codecov/upload
             - Build_and_run_cypress:
                   post-steps: 
                       - codecov/upload

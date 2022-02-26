@@ -13,11 +13,19 @@ describe('Homepage', () => {
     // the app didn't load at all. This
     it('Loads the application', () => {});
 
-    it('Contains the link to the blog page', () => {
-        cy.get('@indexLinkForBlog');
+    it('Contains the link to the development log page', () => {
+        cy.get('@indexLinkForBlog').should('have.attr', 'href', '/posts');
     });
 
-    it('Contains the blurb for the blog page', () => {
-        cy.get('@indexBlurbForBlog');
+    it('Contains the link to the about page', () => {
+        cy.get('@indexLinkForAbout').should('have.attr', 'href', '/about');
+    });
+
+    it('does not show the header', () => {
+        cy.get('header').should('not.exist');
+    });
+
+    it('does not show the footer', () => {
+        cy.get('footer').should('not.exist');
     });
 });

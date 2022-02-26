@@ -20,10 +20,14 @@ const Home = () => {
                 {/* Links and Descriptions */}
                 <div className="mx-auto my-10 grid w-1/2 grid-cols-1 gap-6">
                     <Link href="/posts">
-                        <a className="btn btn-primary text-xl">Development Log</a>
+                        <a className="btn btn-primary text-xl" data-cy="indexLinkForBlog">
+                            Development Log
+                        </a>
                     </Link>
                     <Link href="/about">
-                        <a className="btn btn-ghost">About</a>
+                        <a className="btn btn-ghost" data-cy="indexLinkForAbout">
+                            About
+                        </a>
                     </Link>
                 </div>
             </div>
