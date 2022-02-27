@@ -9,13 +9,13 @@ export default function App({ Component, pageProps: { session, ...pageProps }, r
         <>
             <NextSeo
                 title="Hyperfixations"
-                description="Approximate knowledge of many things"
+                description="Documenting my random fixations"
                 canonical="https://hyperfixations.io/"
                 openGraph={{
                     url: 'https://hyperfixatons.io/',
                     title: 'Hyperfixations',
                     description:
-                        'Follow along as I create and document the process of building a blog with Next.js! Once complete, I will use this to document my various hobby fixations as they come and go.',
+                        'Follow along as I create and document the process of building a blog with Next.js!',
                     site_name: 'Hyperfixations',
                 }}
                 twitter={{
