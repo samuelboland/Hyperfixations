@@ -1,5 +1,5 @@
 ---
-title: 'Styling my Next.js application with Tailwind CSS, Part 2'
+title: 'Styling my Next.js application with Tailwind CSS, Part 2: Header, Footer, and Dropdown'
 slug: styling-js-application-tailwind-css-part-2
 description: Implementing a header, footer, and a navbar dropdown menu with Tailwind and DaisyUI
 author: Sam Boland

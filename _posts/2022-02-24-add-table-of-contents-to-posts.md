@@ -1,7 +1,7 @@
 ---
 title: Add Table of Contents to Posts
 slug: add-table-contents-posts
-description: null
+description: It would be very nice to have an automatically-generated table of contents for each of my posts. It would be even nicer if that table of contents included links that I could click to be taken to that section of the page. 
 author: Sam Boland
 date: '2022-02-25T01:52:32.454Z'
 tags: []

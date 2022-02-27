@@ -1,5 +1,5 @@
 ---
-title: 'Styling my Next.js application with Tailwind CSS, Part 1'
+title: 'Styling my Next.js application with Tailwind CSS, Part 1: The Basics'
 slug: styling-js-application-tailwind-css-part-1
 description: 'Redesigning my site with Tailwind CSS, a series wherein I discuss the trials and tribulations of someone with no design skills trying to make a pretty site.'
 author: Sam Boland

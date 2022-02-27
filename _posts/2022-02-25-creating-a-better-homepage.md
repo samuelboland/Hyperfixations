@@ -1,11 +1,11 @@
 ---
-title: Creating a Better Homepage
+title: 'Styling my Next.js application with Tailwind CSS, Part 4: Homepage'
 slug: creating-homepage
-description: null
+description: My current landing page looks, frankly, awful. Just awful. Let's figure out how to make it look better using TailwindCSS and DaisyUI!
 author: Sam Boland
 date: '2022-02-25T22:50:09.751Z'
-tags: []
-categories: []
+tags: [UX, Tailwind, DaisyUI, Home]
+categories: [Tailwind, DaisyUI]
 ---
 
 ## Table of contents
@@ -42,7 +42,14 @@ The [DaisyUI Docs on Color](https://daisyui.com/docs/colors/) explain how the co
 
 ### Creating a new index page
 
-I am, unfortunately, writing this after the fact. I spent a lot of time playing around with different designs. I'm getting close.
+I am, unfortunately, writing this after the fact. I spent a lot of time playing around with different designs. I'm getting close. The two major breakthroughs were:
+
+- Using a hero banner
+- Adding a theme-dependent background gradient
+
+The latter was surprisingly easy. There are tailwind docs that cover [adding a background gradient](https://tailwindcss.com/docs/gradient-color-stops#basic-usage). I just used the DaisyUI theme colors instead of the built-in tailwind colors. That way, it changes with the theme.
+
+### Taking Stock: The work so far
 
 Here's what I have currently:
 

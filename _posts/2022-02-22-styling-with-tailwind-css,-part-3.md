@@ -1,5 +1,5 @@
 ---
-title: 'Styling with Tailwind CSS, Part 3'
+title: 'Styling my Next.js application with Tailwind CSS, Part 3: Theme Picker'
 slug: styling-tailwind-css-part-3
 description: Implementing a theme picker with DaisyUI and Next-theme. Surprisingly simple!
 author: Sam Boland
