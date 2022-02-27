@@ -1,38 +1,9 @@
-import Link from 'next/link';
-import moment from 'moment';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
-import fs from 'fs';
-import matter from 'gray-matter';
+import PostIndexComponent from '../../components/PostIndexComponent';
+import parseAllFromDir from '../api/localMarkdown';
 
 const index = ({ posts }) => {
-    const PostComponent = ({ slug, frontmatter }) => {
-        const FormatDate = ({ date }) => {
-            return moment(date).format('dddd, YYYY-MM-DD');
-        };
-        return (
-            <div
-                key={frontmatter.date}
-                className="container mx-auto border-b border-primary px-5 py-5"
-            >
-                <h3 data-cy="postIndexDate">
-                    <FormatDate date={frontmatter.date} />
-                </h3>
-                <Link href={`/posts/${slug}`}>
-                    <a data-cy="postIndexLink">
-                        <h2
-                            data-cy="postIndexTitle"
-                            className="title-font text-base-primary mb-4 text-xl sm:text-2xl"
-                        >
-                            {frontmatter.title}
-                        </h2>
-                    </a>
-                </Link>
-                <h3>{frontmatter.description}</h3>
-            </div>
-        );
-    };
-
     const router = useRouter();
     const canonicalUrl = 'http://hyperfixations.io' + router.asPath;
 
@@ -68,7 +39,7 @@ const index = ({ posts }) => {
                     </div>
                     <div className="mx-auto w-3/4 place-self-center border-b border-primary">
                         {posts.map(({ slug, frontmatter }) => (
-                            <PostComponent slug={slug} frontmatter={frontmatter} />
+                            <PostIndexComponent slug={slug} frontmatter={frontmatter} />
                         ))}
                     </div>
                 </div>
@@ -78,18 +49,8 @@ const index = ({ posts }) => {
 };
 
 export async function getStaticProps() {
-    // We reverse here so that we get the newest posts at the top of the resulting index page.
-    // I could reverse it somewhere else, but this is as good of a location as any.
-    const files = fs.readdirSync('_posts/').reverse();
-    const posts = files.map((fileName) => {
-        const slug = fileName.replace('.md', '');
-        const readFile = fs.readFileSync(`_posts/${fileName}`, 'utf-8');
-        const { data: frontmatter } = matter(readFile);
-        return {
-            slug,
-            frontmatter,
-        };
-    });
+    const dir = '_posts';
+    const posts = parseAllFromDir({ dir });
     return {
         props: {
             posts,
