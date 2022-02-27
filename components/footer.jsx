@@ -5,10 +5,10 @@ const Footer = () => {
     return (
         <footer
             data-cy="footer"
-            className="footer fixed inset-x-0 bottom-0 items-center bg-base-300 p-4 text-base-content"
+            className="footer fixed bottom-0 items-center bg-neutral p-4 text-neutral-content"
         >
             <div className="grid-flow-col items-center">
-                <h1>Hyperfixations |</h1>
+                <p>Hyperfixations |</p>
                 <p>© Sam Boland 2022</p>
             </div>
             <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
