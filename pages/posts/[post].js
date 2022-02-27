@@ -35,9 +35,11 @@ const posts = ({ frontmatter, content }) => {
             />
             <section>
                 <div className="container mx-auto px-5 py-24">
-                    <article className="prose mx-auto md:prose-lg lg:prose-xl">
-                        <h1 data-cy="postShowTitle">{frontmatter.title}</h1>
-                        <h2 data-cy="postShowDate">
+                    <article className="md:prose-md prose mx-auto prose-headings:font-normal prose-a:text-neutral prose-img:rounded-xl">
+                        <h1 data-cy="postShowTitle" className="font-light text-base-content">
+                            {frontmatter.title}
+                        </h1>
+                        <h2 data-cy="postShowDate" className="font-light text-base-content">
                             {moment(frontmatter.date).format('dddd, YYYY-MM-DD')}
                         </h2>
                         <ReactMarkdown
