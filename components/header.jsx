@@ -1,14 +1,18 @@
 import { FaBars } from 'react-icons/fa';
+import { FaHome } from 'react-icons/fa';
 import Link from 'next/link';
 import ThemeChanger from './ThemeChanger';
 
 const Header = () => {
     return (
-        <div className="navbar bg-base-300" data-cy="header">
+        <div className="navbar bg-transparent" data-cy="header">
             <div className="flex-1">
                 <Link href="/">
-                    <a data-cy="headerLinkHome" className="btn btn-ghost text-xl normal-case">
-                        Hyperfixations.io
+                    <a
+                        data-cy="headerLinkHome"
+                        className="btn btn-ghost text-center text-xl normal-case"
+                    >
+                        <FaHome size={24} />
                     </a>
                 </Link>
             </div>
