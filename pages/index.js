@@ -12,7 +12,7 @@ const Home = () => {
                         <h1 className="title-font text-2xl font-bold text-base-content sm:text-2xl md:text-3xl lg:text-4xl">
                             Hyperfixations.io
                         </h1>
-                        <h2 className="title-font text-xl text-base-content">
+                        <h2 className="title-font my-4 text-xl text-base-content">
                             Tracking the course of my random obsessions
                         </h2>
                     </div>
@@ -21,7 +21,7 @@ const Home = () => {
                         <div className="mx-auto mb-5 w-3/4 place-content-center border-t border-base-content"></div>
                     </div>
                     {/* Links and Descriptions */}
-                    <div className="mx-auto my-10 grid w-1/2 grid-cols-1 gap-6">
+                    <div className="mx-auto my-6 grid w-1/2 grid-cols-1 gap-4">
                         <Link href="/posts">
                             <a className="btn btn-primary" data-cy="indexLinkForBlog">
                                 <p className="text-primary-content">Dev Log</p>
