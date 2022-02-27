@@ -26,15 +26,14 @@ const index = ({ posts }) => {
             />
             <div className="body-font text-base-content">
                 <div className="container mx-auto px-5 py-24">
-                    <div className="mb-20 text-center">
+                    <div className="mx-auto mb-20 w-3/4 text-center lg:w-1/2">
                         <h1 className="title-font mb-4 text-2xl font-medium text-base-content sm:text-3xl">
                             Development Log
                         </h1>
-                        <p className="mx-auto text-base leading-relaxed text-base-content lg:w-3/4 xl:w-2/4">
+                        <p className="mx-auto font-light leading-relaxed text-base-content lg:w-3/4 xl:w-2/4">
                             A growing record of my progress building the site that you're reading
-                            this on. I try to remember to include screenshots and code blocks, and I
-                            tend to write as I am figuring things out. These are not tutorials, but
-                            I hope you find something of use in them anyways.
+                            this on. These are not tutorials, but I hope you find something of use
+                            in them anyways.
                         </p>
                     </div>
                     <div className="mx-auto w-3/4 place-self-center border-b border-primary">

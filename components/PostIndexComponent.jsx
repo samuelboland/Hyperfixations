@@ -7,14 +7,14 @@ const PostIndexComponent = ({ slug, frontmatter }) => {
     };
     return (
         <div key={frontmatter.date} className="container mx-auto border-b border-primary px-5 py-5">
-            <h3 data-cy="postIndexDate">
+            <p data-cy="postIndexDate" className="font-light text-neutral">
                 <FormatDate date={frontmatter.date} />
-            </h3>
+            </p>
             <Link href={`/posts/${slug}`}>
                 <a data-cy="postIndexLink">
                     <h2
                         data-cy="postIndexTitle"
-                        className="title-font text-base-primary mb-4 text-xl sm:text-2xl"
+                        className="title-font text-base-primary mb-2 text-xl sm:text-2xl"
                     >
                         {frontmatter.title}
                     </h2>
