@@ -2,8 +2,8 @@ import Footer from './footer';
 import Header from './header';
 
 const Layout = ({ children }) => {
-    if (children.props.children.key === '/') {
-        return (<>{ children }</>);
+    if (children.key === '/') {
+        return <>{children}</>;
     } else {
         return (
             <>
