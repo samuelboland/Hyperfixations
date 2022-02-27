@@ -14,16 +14,16 @@ const ThemeChanger = () => {
                     tabIndex="0"
                     className="btn-group dropdown-content menu rounded-box mt-4 w-52 bg-base-100 p-2 shadow"
                 >
-                    <li className="bg-base btn" onClick={() => setTheme('light')}>
+                    <li className="btn btn-primary" onClick={() => setTheme('light')}>
                         Light
                     </li>
-                    <li className="bg-base btn" onClick={() => setTheme('cupcake')}>
+                    <li className="btn btn btn-primary" onClick={() => setTheme('cupcake')}>
                         Cupcake
                     </li>
-                    <li className="bg-base btn" onClick={() => setTheme('ysayle')}>
+                    <li className="btn btn btn-primary" onClick={() => setTheme('ysayle')}>
                         Ysayle
                     </li>
-                    <li className="bg-base btn" onClick={() => setTheme('cmyk')}>
+                    <li className="btn btn btn-primary" onClick={() => setTheme('cmyk')}>
                         CMYK
                     </li>
                 </ul>
