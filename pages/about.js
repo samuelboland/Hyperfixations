@@ -3,11 +3,12 @@ import React from 'react';
 
 export default function About() {
     return (
-        <div className="container prose m-auto">
+        <div className="container mx-auto w-3/4 pt-24 md:w-3/4 lg:w-2/3">
             <main>
                 <div>
-                    <h1>Hyperfixations</h1>
-                    <h2> What is this </h2>
+                    <h1 className="text-3xl font-light text-base-content sm:text-4xl">
+                        Hyperfixations
+                    </h1>
                     <p>
                         Hello! My name is Sam. I currently work as a Sr. QA Engineer. I am learning
                         more about the development side of tech work. This site is my classroom, my
