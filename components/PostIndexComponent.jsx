@@ -6,21 +6,21 @@ const PostIndexComponent = ({ slug, frontmatter }) => {
         return moment(date).format('dddd, YYYY-MM-DD');
     };
     return (
-        <div key={frontmatter.date} className="container mx-auto border-b border-primary px-5 py-5">
-            <p data-cy="postIndexDate" className="font-light text-neutral">
-                <FormatDate date={frontmatter.date} />
-            </p>
+        <div key={frontmatter.date} className="border-b border-gray-500 py-6">
             <Link href={`/posts/${slug}`}>
                 <a data-cy="postIndexLink">
                     <h2
                         data-cy="postIndexTitle"
-                        className="title-font text-base-primary mb-2 text-xl sm:text-2xl"
+                        className="mb-2 text-2xl font-light text-base-content sm:text-3xl"
                     >
                         {frontmatter.title}
                     </h2>
                 </a>
             </Link>
-            <h3>{frontmatter.description}</h3>
+            <p data-cy="postIndexDate" className="py-1 font-thin text-info-content">
+                <FormatDate date={frontmatter.date} />
+            </p>
+            <p>{frontmatter.description}</p>
         </div>
     );
 };
