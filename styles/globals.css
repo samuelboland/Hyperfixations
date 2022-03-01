@@ -2,5 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&family=Montserrat:wght@100;400;900&family=Open+Sans:wght@400;700&display=swap');
+@font-face {
+    font-family: "OpenSans";
+    src: url("/fonts/OpenSans/OpenSans.ttf");
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+}
 
+@font-face {
+    font-family: "SourceSans3";
+    src: url("/fonts/SourceSans/SourceSans3.ttf");
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "FiraCode";
+    src: url("/fonts/FiraCode/FiraCode.ttf");
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@layer base {
+    html {
+        font-family: OpenSans, system-ui, sans-serif;
+    }
+    h1,h2,h3,h4,h5,h6{
+        font-family: SourceSans3;
+    }
+    pre,code{
+        font-family: FiraCode;
+    }
+}
