@@ -5,13 +5,18 @@ const Footer = () => {
     return (
         <footer
             data-cy="footer"
-            className="footer fixed bottom-0 items-center bg-neutral p-4 text-neutral-content"
+            className="footer fixed bottom-0 grid-flow-col items-center bg-neutral p-4 text-neutral-content"
         >
-            <div className="grid-flow-col items-center">
-                <p>Hyperfixations |</p>
-                <p>© Sam Boland 2022</p>
+            <div className="grid-flow-col place-self-auto">
+                <p>© 2022 |</p>
+                <Link href="/privacy">
+                    <a>Privacy |</a>
+                </Link>
+                <Link href="/licenses">
+                    <a>Licenses</a>
+                </Link>
             </div>
-            <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+            <div className="grid-flow-col place-self-end ">
                 <Link href="https://twitter.com/samcboland">
                     <a aria-label="button" data-cy="footerTwitterLink">
                         <button className="btn btn-ghost btn-square">

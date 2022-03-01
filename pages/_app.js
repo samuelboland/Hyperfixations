@@ -1,6 +1,5 @@
 import React from 'react';
 import '../styles/globals.css';
-import { AnimatePresence } from 'framer-motion';
 import Layout from '../components/layout';
 import { NextSeo } from 'next-seo';
 import { ThemeProvider } from 'next-themes';
@@ -10,13 +9,13 @@ export default function App({ Component, pageProps: { session, ...pageProps }, r
         <>
             <NextSeo
                 title="Hyperfixations"
-                description="Approximate knowledge of many things"
+                description="Documenting my random fixations"
                 canonical="https://hyperfixations.io/"
                 openGraph={{
                     url: 'https://hyperfixatons.io/',
                     title: 'Hyperfixations',
                     description:
-                        'Follow along as I create and document the process of building a blog with Next.js! Once complete, I will use this to document my various hobby fixations as they come and go.',
+                        'Follow along as I create and document the process of building a blog with Next.js!',
                     site_name: 'Hyperfixations',
                 }}
                 twitter={{
@@ -26,13 +25,7 @@ export default function App({ Component, pageProps: { session, ...pageProps }, r
             />
             <ThemeProvider>
                 <Layout>
-                    <AnimatePresence
-                        exitBeforeEnter
-                        initial="start"
-                        onExitComplete={() => window.scrollTo(0, 0)}
-                    >
-                        <Component {...pageProps} key={router.pathname} />
-                    </AnimatePresence>
+                    <Component {...pageProps} key={router.pathname} />
                 </Layout>
             </ThemeProvider>
         </>

@@ -46,4 +46,4 @@ Here's the code to make that happen:
 Note that you add opacity to the *current div*. So this creates a background in this div with a gray color, and then applies 30% opacity to it. This interacts with the drop shadow and the background to look like it's slightly elevated.
 
 Another thing that I did was add the navigation bar on top.
-I wanted it to be accessible from anywhere, and for users to be able to change the theme from the home page.
+I wanted it to be accessible from anywhere, and for users to be able to change the theme from the home page. I kept the transparent navbar from my previous story though.
