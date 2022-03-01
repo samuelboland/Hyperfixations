@@ -47,7 +47,7 @@ const posts = ({ frontmatter, content }) => {
                     >
                         {moment(frontmatter.date).format('dddd, YYYY-MM-DD')}
                     </h2>
-                    <article className="md:prose-md prose mb-16 mt-8 prose-h2:font-normal prose-h3:font-normal prose-h3:underline prose-a:text-neutral prose-img:rounded-xl">
+                    <article className="md:prose-md prose mb-16 mt-8 prose-h2:font-normal prose-h3:font-normal prose-h3:underline prose-a:text-neutral prose-img:rounded-xl prose-img:shadow">
                         <ReactMarkdown
                             data-cy="postShowBody"
                             components={(MarkdownComponents, SyntaxHighlight)}
