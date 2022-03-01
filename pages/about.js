@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import React from 'react';
 
 export default function About() {
@@ -6,46 +5,32 @@ export default function About() {
         <div className="container mx-auto w-3/4 pt-24 md:w-3/4 lg:w-2/3">
             <main>
                 <div>
-                    <h1 className="text-3xl font-light text-base-content sm:text-4xl">
-                        Hyperfixations
+                    <h1 className="mb-4 text-center text-4xl font-light text-base-content sm:text-5xl">
+                        Hello. I'm Sam.
                     </h1>
-                    <p>
-                        Hello! My name is Sam. I currently work as a Sr. QA Engineer. I am learning
-                        more about the development side of tech work. This site is my classroom, my
-                        playground, and my journal.
-                    </p>
-                    <p>
-                        I intend to document the steps that I take to build this site in the
-                        Development Diary. You can navigate to it with the link below, or with the
-                        menu in the navbar up top.
-                    </p>
-                    <p> This site is built with: </p>
-                    <ul>
-                        <li>Next.JS</li>
-                        <li>Vercel</li>
-                        <li>CircleCI</li>
-                        <li>React</li>
-                        <li>Tailwind CSS</li>
-                        <li>Daisy UI</li>
-                    </ul>
-                    <br />
-                    <p>
-                        This is not an exhaustive list, of course. A more comprehensive list can be
-                        found at the site's repository, here:{' '}
-                        <Link href="https://github.com/samuelboland/Hyperfixations">
-                            <a>Hyperfixations</a>
-                        </Link>
-                    </p>
-                </div>
-                <div>
-                    <Link href="/posts">
-                        <a data-cy="indexLinkForBlog">
-                            <h2 data-cy="indexTextForBlog">Development Diary </h2>
-                        </a>
-                    </Link>
-                    <p data-cy="indexBlurbForBlog">
-                        A (somewhat) real-time record of this site's development
-                    </p>
+                    <h2 className="mb-4 text-center text-xl font-light sm:text-2xl">
+                        Nice to meet you.
+                    </h2>
+                    <div className="mx-auto mb-4 w-3/4 border border-b border-base-content"></div>
+                    <h2 className="mb-4 font-bold text-base-content"></h2>
+                    {/* Header above. Text below. */}
+                    <div className="container mt-8">
+                        <p className="prose m-4 mx-auto">
+                            This blog contains posts about my various <i>Hyperfixations</i> as they
+                            come and go. My current obsession is building this site, so it is
+                            self-documenting, in a way.
+                        </p>
+                        <p className="prose m-4 mx-auto">
+                            As someone with ADHD, I tend to become fixated on a particular topic for
+                            a period of weeks to months, and spend much of my free time on it. I
+                            have learned many things from this, but much of that knowledge becomes
+                            lost over time.{' '}
+                        </p>
+                        <p className="prose m-2 mx-auto text-center">
+                            This site is my attempt to change that.
+                        </p>
+                        <p className="prose m-2 mx-auto"></p>
+                    </div>
                 </div>
             </main>
         </div>
