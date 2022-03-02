@@ -1,7 +1,6 @@
 import { FaBars } from 'react-icons/fa';
 import { FaHome } from 'react-icons/fa';
 import Link from 'next/link';
-import ThemeChanger from './ThemeChanger';
 
 const Header = () => {
     return (
@@ -16,7 +15,6 @@ const Header = () => {
                     </a>
                 </Link>
             </div>
-            <ThemeChanger />
             <div className="divider divider-horizontal"></div>
             <div className="dropdown-left dropdown">
                 <label
