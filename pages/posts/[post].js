@@ -33,12 +33,12 @@ const posts = ({ frontmatter, content }) => {
                     cardType: 'summary_large_image',
                 }}
             />
-            <section className="place-content-center">
+            <section className="mx-auto mb-24 w-4/5 lg:w-1/2">
                 <div className="mx-auto w-3/4 pt-16">
-                    <div className="mx-auto">
+                    <div className="">
                         <h1
                             data-cy="postShowTitle"
-                            className="mx-auto text-3xl font-light text-base-content sm:text-4xl"
+                            className="place-self-center text-3xl font-light text-base-content sm:text-4xl"
                         >
                             {frontmatter.title}
                         </h1>
@@ -49,7 +49,7 @@ const posts = ({ frontmatter, content }) => {
                             {moment(frontmatter.date).format('dddd, YYYY-MM-DD')}
                         </h2>
                     </div>
-                    <article className="prose mb-16 mt-8 max-w-none prose-h2:mt-16 prose-h2:mb-4 prose-h2:text-center prose-h2:font-normal prose-a:text-neutral prose-pre:bg-inherit prose-img:rounded-xl prose-img:shadow lg:mx-auto lg:w-3/5">
+                    <article className="prose mb-16 mt-8 max-w-none prose-h2:mt-16 prose-h2:mb-4 prose-h2:text-center prose-h2:font-normal prose-a:text-neutral prose-pre:bg-inherit prose-img:rounded-xl prose-img:shadow lg:mx-auto">
                         <ReactMarkdown
                             data-cy="postShowBody"
                             components={(MarkdownComponents, SyntaxHighlight)}

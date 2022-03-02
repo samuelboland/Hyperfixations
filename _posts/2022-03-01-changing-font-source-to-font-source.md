@@ -12,7 +12,9 @@ categories: []
 
 ## Explanation
 
-I apologize for the title, I couldn't help myself. I ran into a problem when I deployed my recent changes to add new fonts. They weren't visible in production!
+I apologize for the title, I couldn't help myself.
+
+I ran into a problem when I deployed my recent changes to add new fonts. They weren't visible in production!
 
 I tried to figure out how to fix it, and stumbled upon [Fontsource](https://fontsource.org/docs/getting-started)!
 
