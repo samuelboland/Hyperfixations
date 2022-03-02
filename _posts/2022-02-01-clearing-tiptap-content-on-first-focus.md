@@ -1,7 +1,7 @@
 ---
 title: Clearing Tiptap Content on First Focus
-description: 'Like my previous post said, I'
-'m working on setting up a rich text editor on this site to use to write blog posts. I have it mostly working, but during the process I had a silly idea''': 'How could I get this editor to act like a regular <input> box, at least in terms of how <input> elements can have placeholder text? You can break down that problem into these steps:'''
+description: "Like my previous post said, I'
+'m working on setting up a rich text editor on this site to use to write blog posts. I have it mostly working, but during the process I had a silly idea"
 date: '2022-02-01T06:34:35.029Z'
 tags: ''
 slug: clearing-tiptap-content-focus
