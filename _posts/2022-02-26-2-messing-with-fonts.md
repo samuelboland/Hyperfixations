@@ -10,39 +10,36 @@ categories: []
 
 ## Table of contents
 
-## Introduction
+## Is a word not a word if written in any other font?
 
-### Explanation
+No, it is not. Fonts are a very important part of the *feel* of a document.
 
-I want to get better at fonts. I want to be intentional with the fonts that I use, and not just use the ones that come with Typography, nice as they are. To that end, I'm going to play around with a few popular font pairings that I find around the internet.
+I want to be intentional with the fonts that I choose to use, and not just use the ones that come with Typography, nice as they are. To that end, I'm going to play around with a popular font pairing that I found in a few blogs about fonts.
 
-## Dev Log
 
-### The precarious legal position of Google Fonts
+## The precarious legal position of Google Fonts
 
 Next.js makes it easy to use Google's fonts. It has specific support for them, which you can read about [in the official docs](https://nextjs.org/docs/basic-features/font-optimization).
-
-Google Fonts are also extremely easy to use.
 
 The downside is that they are currently in strange legal territory. Here's a [Hacker News discussion](https://news.ycombinator.com/item?id=30135264) on the topic. Much like Google Analytics, Google Fonts are under intense scrutiny by European courts for their data collection practices. I'm all for it, I love seeing the big tech giants be reigned in.
 
 This does complicate things somewhat though.
 
-### How to serve Google Fonts locally in Next.js
+## How to serve Google Fonts locally in Next.js
 
 To get around this restriction, I can host the fonts locally. There are a few blogs around that explain how to do this. [Here's one](https://kirazhang.com/posts/nextjs-custom-fonts).
 
 We need to do the following:
 
 - Create a `fonts` folder under `public`.
-- Create subfolders for each font inside of that.
+- Create subfolders for each font inside of that. (Optional, just makes things easier.)
 - Place the font files within the relevant subfolder.
 - In `global.css`, use `@font-face` delcarations to specify the fonts, styles, and weights.
 - Preload fonts in a high level component, perhaps Layout?
 
 Let's give it a shot.
 
-### Roboto + Open Sans
+## Adding Roboto + Open Sans
 
 One of the most common suggestions that I see is a combination of Roboto + Open Sans. Roboto serves as the font for headlines, and Open Sans works for the body copy.
 
@@ -83,7 +80,9 @@ I did a quick test to make sure that it worked before importing every font style
 
 And this did update my fonts! However, I'm missing things like **bold** or *italics* or light or heavy, etc. I need to add all of those now. Manually. :(
 
-Wait. Wait a minute. Can I use a variable font file?
+## Variable Fonts save the day! And minutes of tedious work
+
+**Wait. Wait a minute.** Can I use a variable font file?
 
 >Quick aside: A variable font file is a newer format that encodes all the weights and styles of a font in a single file.
 
@@ -107,7 +106,7 @@ And that worked! Light and Bold and other weights work great.
 
 One problem: Roboto does not have a variable font.
 
-### Source Sans and Open Sans
+## Source Sans and Open Sans
 
 Source Sans looks nice. [This](https://typ.io/fonts/source_sans_pro/with/open_sans) site has some good examples of font pairings, and shows a site with Source sans and Open Sans together, along with the weights for each section.
 
