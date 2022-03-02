@@ -25,6 +25,9 @@
     "dependencies": {
         "@cypress/react": "^5.12.2",
         "@cypress/webpack-dev-server": "^1.8.1",
+        "@fontsource/fira-code": "^4.5.5",
+        "@fontsource/open-sans": "^4.5.5",
+        "@fontsource/source-sans-3": "^4.5.4",
         "@next/eslint-plugin-next": "^12.0.9",
         "daisyui": "^2.1.0",
         "framer-motion": "^6.2.3",
