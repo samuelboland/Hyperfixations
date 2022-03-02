@@ -33,21 +33,23 @@ const posts = ({ frontmatter, content }) => {
                     cardType: 'summary_large_image',
                 }}
             />
-            <section>
-                <div className="container mx-auto w-3/4 pt-24 md:w-3/4 lg:w-2/3">
-                    <h1
-                        data-cy="postShowTitle"
-                        className="text-3xl font-light text-base-content sm:text-4xl"
-                    >
-                        {frontmatter.title}
-                    </h1>
-                    <h2
-                        data-cy="postShowDate"
-                        className="mt-4 text-xl font-light text-info-content sm:text-2xl"
-                    >
-                        {moment(frontmatter.date).format('dddd, YYYY-MM-DD')}
-                    </h2>
-                    <article className="md:prose-md prose mb-16 mt-8 prose-h2:font-normal prose-h3:font-normal prose-h3:underline prose-a:text-neutral prose-pre:bg-inherit prose-img:rounded-xl prose-img:shadow">
+            <section className="place-content-center">
+                <div className="mx-auto w-3/4 pt-16">
+                    <div className="mx-auto">
+                        <h1
+                            data-cy="postShowTitle"
+                            className="mx-auto text-3xl font-light text-base-content sm:text-4xl"
+                        >
+                            {frontmatter.title}
+                        </h1>
+                        <h2
+                            data-cy="postShowDate"
+                            className="mx-auto mt-4 text-xl font-light text-info-content sm:text-2xl"
+                        >
+                            {moment(frontmatter.date).format('dddd, YYYY-MM-DD')}
+                        </h2>
+                    </div>
+                    <article className="prose mb-16 mt-8 max-w-none prose-h2:mt-16 prose-h2:mb-4 prose-h2:text-center prose-h2:font-normal prose-a:text-neutral prose-pre:bg-inherit prose-img:rounded-xl prose-img:shadow lg:mx-auto lg:w-3/5">
                         <ReactMarkdown
                             data-cy="postShowBody"
                             components={(MarkdownComponents, SyntaxHighlight)}
