@@ -6,6 +6,7 @@ module.exports = {
     ],
     daisyui: {
         themes: [
+            'cmyk',
             {
                 ysayle: {
                     primary: '#33557d',
@@ -20,9 +21,7 @@ module.exports = {
                 },
             },
             'light',
-            'dark',
             'cupcake',
-            'cmyk',
         ],
     },
     plugins: [require('@tailwindcss/typography'), require('daisyui')],
