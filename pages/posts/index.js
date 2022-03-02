@@ -24,7 +24,7 @@ const index = ({ posts }) => {
                     cardType: 'summary_large_image',
                 }}
             />
-            <div>
+            <div className="mb-24">
                 <div className="container mx-auto w-3/4 pt-24 md:w-3/4 lg:w-2/3">
                     <div className="mx-auto mb-6 text-left">
                         <h1 className="mb-4 text-4xl font-light sm:text-6xl">Development Log</h1>
