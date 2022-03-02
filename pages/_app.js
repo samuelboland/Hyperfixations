@@ -3,6 +3,10 @@ import '../styles/globals.css';
 import Layout from '../components/layout';
 import { NextSeo } from 'next-seo';
 import { ThemeProvider } from 'next-themes';
+import '@fontsource/fira-code';
+import '@fontsource/open-sans';
+import '@fontsource/source-sans-3';
+
 
 export default function App({ Component, pageProps: { session, ...pageProps }, router }) {
     return (
