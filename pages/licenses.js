@@ -17,11 +17,11 @@ const privacy = () => {
     const GoogleFonts = () => {
         return (
             <div className="mx-auto my-6">
-                <h1 className="title-font mb-4 text-xl font-medium">Google Fonts</h1>
+                <h1 className="title-font mb-4 text-xl font-medium">Fonts</h1>
                 <p className="mb-4">
                     {' '}
-                    This site currently uses a few locally-hosted fonts provided by Google Fonts.
-                    The fonts and their licenses are listed below.
+                    This site currently uses a few locally-hosted fonts provided by Font Source. The
+                    fonts and their licenses are listed below.
                 </p>
                 <table className="mx-auto table">
                     <tr>
