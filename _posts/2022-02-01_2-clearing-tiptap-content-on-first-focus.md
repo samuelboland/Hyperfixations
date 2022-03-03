@@ -13,11 +13,11 @@ pullRequest: None
 
 Like my previous post said, I'm working on setting up a rich text editor on this site to use to write blog posts. I've got it mostly working, but during the process I had a silly idea: How could I get this editor to act like a regular <input> box, at least in terms of how <input> elements can have placeholder text? You can break down that problem into these steps:
 
-1.  Display placeholder text in the body of the Tiptap editor window
-2.  Clear that text on the first focus
+1. Display placeholder text in the body of the Tiptap editor window
+2. Clear that text on the first focus
 
-    1.  Learn how to determine if the editor is focused
-    2.  Keep track of whether the editor is being focused for the first time, or some other time.
+    1. Learn how to determine if the editor is focused
+    2. Keep track of whether the editor is being focused for the first time, or some other time.
 
 ### How to determine whether an element is focused in React
 
@@ -68,7 +68,7 @@ useEffect((editor) => {
 
 Now let's tackle problem 1, **displaying text in the content box on load.** I decided that I wanted to have the ability to pass the desired text as a prop from some other component, so that I can pick what displays in each place that I use this editor.
 
-Further, looking through the docs, and there's a great way to set content _after_ the editor loads: Events. Tiptap exposes a few events during the lifecycle of the component, which you can read about here: https://tiptap.dev/api/events. I chose to hook in to the `onCreate` event. When I initialize the editor, I now do this:
+Further, looking through the docs, and there's a great way to set content _after_ the editor loads: Events. Tiptap exposes a few events during the lifecycle of the component, which you can read about here: <https://tiptap.dev/api/events>. I chose to hook in to the `onCreate` event. When I initialize the editor, I now do this:
 
 ```jsx
 const editor = useEditor({
