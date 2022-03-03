@@ -1,8 +1,8 @@
 ---
 title: Less is More - Removing my theme changer
 slug: removing-theme-changer
-description: null
-author: null
+description: In which I discover the danger of too many choices, and intentionally pare down my options to reduce cognitive load in my design.
+author: Sam Boland
 date: '2022-03-02T18:23:37.180Z'
 tags: []
 categories: []
