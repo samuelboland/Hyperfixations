@@ -1,7 +1,6 @@
 ---
 title: Clearing Tiptap Content on First Focus
-description: "Like my previous post said, I'
-'m working on setting up a rich text editor on this site to use to write blog posts. I have it mostly working, but during the process I had a silly idea"
+description: "Like my previous post said, I' m working on setting up a rich text editor on this site to use to write blog posts. I have it mostly working, but during the process I had a silly idea"
 date: '2022-02-01T06:34:35.029Z'
 tags: ''
 slug: clearing-tiptap-content-focus
