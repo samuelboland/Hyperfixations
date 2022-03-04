@@ -82,8 +82,10 @@ A massive difference. The highlighting code now only takes up 130.82kb. That's o
 
 ## Assessing Lighthouse Score Improvement
 
-The changes above yielded a Lighthouse score of 92 for performance. As a reminder, the previous score was 66. 
+The changes above yielded a Lighthouse score of 97 for performance. As a reminder, the previous score was 66. 
 
-There is still room for improvement. It suggests to "reduce initial server response time," along with additional unused JS reduction. However, this improvement is enough for now. 
+There is still room for improvement. It suggests additional reduction of unused JS, and even thinks that I can save 123kb out of 179kb. I wonder how it figures that. I'll look into this more later.
+
+However, this improvement is enough for now. 
 
 I intend to introduce pagination to this page in the near future, which will likely involve additional changes to my score. 
