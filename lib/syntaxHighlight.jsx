@@ -1,5 +1,12 @@
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism/vsc-dark-plus';
+import jsx from 'react-syntax-highlighter/dist/cjs/languages/prism/jsx'
+import css from 'react-syntax-highlighter/dist/cjs/languages/prism/css'
+import js from 'react-syntax-highlighter/dist/cjs/languages/prism/javascript'
+
+SyntaxHighlighter.registerLanguage('jsx', jsx)
+SyntaxHighlighter.registerLanguage('js', js)
+SyntaxHighlighter.registerLanguage('css', css)
 
 const SyntaxHighlight = {
     code({ node, inline, className, ...props }) {
