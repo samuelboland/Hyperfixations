@@ -1,6 +1,5 @@
 import ReactMarkdown from 'react-markdown';
-import { MarkdownComponents } from '../../lib/markdownRemoteImages';
-import SyntaxHighlight from '../../lib/syntaxHighlight';
+import { MarkdownComponents } from '../../lib/customMarkdownComponents';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import fs from 'fs';
@@ -52,7 +51,7 @@ const posts = ({ frontmatter, content }) => {
                     <article className="prose mb-16 mt-8 max-w-none prose-h2:mt-16 prose-h2:mb-4 prose-h2:text-center prose-h2:font-normal prose-a:text-neutral prose-pre:bg-inherit prose-img:rounded-xl prose-img:shadow lg:mx-auto">
                         <ReactMarkdown
                             data-cy="postShowBody"
-                            components={(MarkdownComponents, SyntaxHighlight)}
+                            components={MarkdownComponents}
                             remarkPlugins={[remarkToc]}
                             rehypePlugins={[rehypeSlug]}
                         >
