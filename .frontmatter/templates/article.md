@@ -12,6 +12,4 @@ categories: []
 
 ## Introduction
 
-### Explanation
-
 ## Dev Log
