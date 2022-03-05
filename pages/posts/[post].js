@@ -9,6 +9,7 @@ import glob from 'glob';
 import moment from 'moment';
 import remarkToc from 'remark-toc';
 import rehypeSlug from 'rehype-slug';
+import { SRLWrapper } from 'simple-react-lightbox';
 
 const posts = ({ frontmatter, content }) => {
     const router = useRouter();
@@ -48,16 +49,18 @@ const posts = ({ frontmatter, content }) => {
                             {moment(frontmatter.date).format('dddd, YYYY-MM-DD')}
                         </h2>
                     </div>
-                    <article className="prose mb-16 mt-8 max-w-none prose-h2:mt-16 prose-h2:mb-4 prose-h2:text-center prose-h2:font-normal prose-a:text-neutral prose-pre:bg-inherit prose-img:rounded-xl prose-img:shadow lg:mx-auto">
-                        <ReactMarkdown
-                            data-cy="postShowBody"
-                            components={MarkdownComponents}
-                            remarkPlugins={[remarkToc]}
-                            rehypePlugins={[rehypeSlug]}
-                        >
-                            {content}
-                        </ReactMarkdown>
-                    </article>
+                    <SRLWrapper>
+                        <article className="prose mb-16 mt-8 max-w-none prose-h2:mt-16 prose-h2:mb-4 prose-h2:text-center prose-h2:font-normal prose-a:text-neutral prose-pre:bg-inherit prose-img:rounded-xl prose-img:shadow lg:mx-auto">
+                            <ReactMarkdown
+                                data-cy="postShowBody"
+                                components={MarkdownComponents}
+                                remarkPlugins={[remarkToc]}
+                                rehypePlugins={[rehypeSlug]}
+                            >
+                                {content}
+                            </ReactMarkdown>
+                        </article>
+                    </SRLWrapper>
                 </div>
             </section>
         </>

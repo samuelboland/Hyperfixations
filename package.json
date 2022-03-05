@@ -46,7 +46,8 @@
         "react-syntax-highlighter": "^15.4.5",
         "rehype-slug": "^5.0.1",
         "remark-toc": "^8.0.1",
-        "sass": "^1.49.0"
+        "sass": "^1.49.0",
+        "simple-react-lightbox": "^3.6.9-0"
     },
     "devDependencies": {
         "@cypress/code-coverage": "^3.9.12",

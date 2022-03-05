@@ -6,6 +6,8 @@ import '@fontsource/fira-code';
 import '@fontsource/open-sans';
 import '@fontsource/source-sans-3';
 
+import SimpleReactLightbox from 'simple-react-lightbox';
+
 export default function App({ Component, pageProps: { session, ...pageProps }, router }) {
     return (
         <>
@@ -25,9 +27,11 @@ export default function App({ Component, pageProps: { session, ...pageProps }, r
                     cardType: 'summary_large_image',
                 }}
             />
-            <Layout>
-                <Component {...pageProps} key={router.pathname} />
-            </Layout>
+            <SimpleReactLightbox>
+                <Layout>
+                    <Component {...pageProps} key={router.pathname} />
+                </Layout>
+            </SimpleReactLightbox>
         </>
     );
 }
