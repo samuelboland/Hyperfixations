@@ -34,7 +34,7 @@ const Header = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link href="/posts">
+                        <Link href="/blog">
                             <a data-cy="headerDropdownLinkPosts">Dev Log</a>
                         </Link>
                     </li>

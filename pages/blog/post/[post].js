@@ -1,5 +1,5 @@
 import ReactMarkdown from 'react-markdown';
-import { MarkdownComponents } from '../../lib/customMarkdownComponents';
+import { MarkdownComponents } from '../../../lib/customMarkdownComponents';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import fs from 'fs';

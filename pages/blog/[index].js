@@ -1,7 +1,8 @@
-import { NextSeo } from 'next-seo';
-import { useRouter } from 'next/router';
-import PostIndexComponent from '../../components/PostIndexComponent';
+import fs from 'fs';
 import parseAllFromDir from '../api/localMarkdown';
+import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
+import PostIndexComponent from '../../components/PostIndexComponent';
 
 const index = ({ posts }) => {
     const router = useRouter();
@@ -10,14 +11,14 @@ const index = ({ posts }) => {
     return (
         <>
             <NextSeo
-                title="Development Log"
-                description="Approximate knowledge of many things"
+                title="Blog Posts"
+                description="List of my available blog posts about building a site with Next.js"
                 canonical={canonicalUrl}
                 openGraph={{
-                    url: 'https://hyperfixatons.io/posts',
+                    url: 'https://hyperfixatons.io/blog/',
                     title: 'Hyperfixations',
-                    description: 'Index page for my development log blog posts',
-                    site_name: 'Hyperfixations',
+                    description: 'List of my available blog posts',
+                    site_name: 'Hyperfixations.io',
                 }}
                 twitter={{
                     handle: '@SamCBoland',
@@ -46,14 +47,33 @@ const index = ({ posts }) => {
     );
 };
 
-export async function getStaticProps() {
+export default index;
+
+export async function getStaticPaths() {
     const dir = '_posts';
-    const posts = parseAllFromDir({ dir });
+    const postsPerPage = 10;
+    const postCount = fs.readdirSync(dir + '/').length;
+    const pageCount = Math.ceil(postCount / postsPerPage);
+    const paths = [];
+    for (var i = 0; i < pageCount; i++) {
+        paths.push({ params: { index: (i + 1).toString() } });
+        // Adding 1 here so that the page routes start at 1.
+        // Just feels better. No real reason.
+    }
+    return {
+        paths,
+        fallback: false,
+    };
+}
+
+export async function getStaticProps({ params: index }) {
+    const dir = '_posts';
+    const allPosts = parseAllFromDir({ dir });
+    const postStartingIndex = (index.index - 1) * 10;
+    const posts = allPosts.slice(postStartingIndex, postStartingIndex + 10);
     return {
         props: {
             posts,
         },
     };
 }
-
-export default index;

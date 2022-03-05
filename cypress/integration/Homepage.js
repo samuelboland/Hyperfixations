@@ -14,7 +14,7 @@ describe('Homepage', () => {
     it('Loads the application', () => {});
 
     it('Contains the link to the development log page', () => {
-        cy.get('@indexLinkForBlog').should('have.attr', 'href', '/posts');
+        cy.get('@indexLinkForBlog').should('have.attr', 'href', '/blog/1');
     });
 
     it('Contains the link to the about page', () => {
