@@ -1,6 +1,6 @@
 describe('Post Show page', () => {
     before(() => {
-        cy.visit('/posts/2022-02-09-switching-to-markdown-files');
+        cy.visit('/blog/post/2022-02-09-switching-to-markdown-files');
     });
 
     beforeEach(() => {

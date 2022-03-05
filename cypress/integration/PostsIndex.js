@@ -1,6 +1,6 @@
 describe('Post Index page', () => {
     before(() => {
-        cy.visit('/posts');
+        cy.visit('/blog/1');
     });
 
     beforeEach(() => {

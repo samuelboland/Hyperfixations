@@ -1,6 +1,6 @@
 describe('Header Tests', () => {
     beforeEach(() => {
-        cy.visit('/posts');
+        cy.visit('/blog/1');
 
         cy.asAll();
     });
@@ -21,7 +21,7 @@ describe('Header Tests', () => {
 
 describe('Footer Tests', () => {
     beforeEach(() => {
-        cy.visit('/posts');
+        cy.visit('/blog/1');
         cy.asAll();
     });
 
