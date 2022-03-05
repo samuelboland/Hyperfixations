@@ -1,7 +1,7 @@
 ---
 title: Improve Next.js Site Lighthouse Score, Part 1 - Diagnosis
 slug: improve-js-site-lighthouse-score-part-1-diagnosis
-description: null
+description: In which I discover that my site is not as performance as I thought it was, and look for ways to improve it.
 author: null
 date: '2022-03-03T06:20:33.469Z'
 tags: []
