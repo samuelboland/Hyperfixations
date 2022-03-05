@@ -22,7 +22,7 @@ const Home = () => {
                         </div>
                         {/* Links and Descriptions */}
                         <div className="mx-auto grid grid-cols-1">
-                            <Link href="/posts">
+                            <Link href="/blog/1">
                                 <a className="btn btn-primary" data-cy="indexLinkForBlog">
                                     <p className="text-primary-content">Read some ramblings</p>
                                 </a>

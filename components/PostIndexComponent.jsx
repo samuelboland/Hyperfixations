@@ -7,7 +7,7 @@ const PostIndexComponent = ({ slug, frontmatter }) => {
     };
     return (
         <div key={frontmatter.date} className="border-b border-gray-500 py-6">
-            <Link href={`/posts/${slug}`}>
+            <Link href={`/blog/post/${slug}`}>
                 <a data-cy="postIndexLink">
                     <h2
                         data-cy="postIndexTitle"
